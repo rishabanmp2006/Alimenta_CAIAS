@@ -6,6 +6,7 @@ export default function EducationalGame() {
   const [currentIngredient, setCurrentIngredient] = useState(null);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
+  const [bestStreak, setBestStreak] = useState(0);
   const [totalAttempts, setTotalAttempts] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [showResults, setShowResults] = useState(false);
@@ -19,6 +20,7 @@ export default function EducationalGame() {
     setGameMode('quiz');
     setScore(0);
     setStreak(0);
+    setBestStreak(0);
     setTotalAttempts(0);
     setShowResults(false);
     setCurrentIngredient(getRandomIngredient());
@@ -30,7 +32,9 @@ export default function EducationalGame() {
 
     if (correct) {
       setScore(score + 10 + streak * 2);
-      setStreak(streak + 1);
+      const newStreak = streak + 1;
+      setStreak(newStreak);
+      setBestStreak(prev => Math.max(prev, newStreak));
       setFeedback({
         correct: true,
         message: `Correct! ${currentIngredient.name} is ${currentIngredient.category}. +${10 + streak * 2} points!`
@@ -199,7 +203,7 @@ export default function EducationalGame() {
               <p className="text-[11px] text-text-tertiary uppercase">Accuracy</p>
             </div>
             <div className="card p-4">
-              <p className="text-[24px] font-extrabold text-text-primary">{Math.max(...[streak])}</p>
+              <p className="text-[24px] font-extrabold text-text-primary">{bestStreak}</p>
               <p className="text-[11px] text-text-tertiary uppercase">Best Streak</p>
             </div>
           </div>

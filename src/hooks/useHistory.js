@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const STORAGE_KEY = 'alimenta_scan_history';
 const MAX_HISTORY = 50;
@@ -7,29 +7,19 @@ const MAX_HISTORY = 50;
  * Custom hook for managing scan history in localStorage
  */
 export function useHistory() {
-  const [history, setHistory] = useState([]);
-  const isInitialized = useRef(false);
-
-  // Load history from localStorage on mount
-  useEffect(() => {
-    if (isInitialized.current) return;
-    
+  const [history, setHistory] = useState(() => {
+    // Initialize state directly from localStorage (runs once, synchronously)
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setHistory(JSON.parse(stored));
-      }
-      isInitialized.current = true;
+      return stored ? JSON.parse(stored) : [];
     } catch (e) {
       console.error('Failed to load history:', e);
-      isInitialized.current = true;
+      return [];
     }
-  }, []);
+  });
 
-  // Save to localStorage whenever history changes (but skip on initial load)
+  // Persist to localStorage whenever history changes
   useEffect(() => {
-    if (!isInitialized.current) return;
-    
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
     } catch (e) {

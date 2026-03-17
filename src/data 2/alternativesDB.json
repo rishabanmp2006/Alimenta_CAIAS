@@ -1,0 +1,57 @@
+{
+  "chocolate spread": [
+    { "name": "Organic Dark Chocolate Spread", "reason": "Lower sugar, no palm oil, higher cocoa content", "healthScore": 72 },
+    { "name": "Almond Butter with Cocoa", "reason": "High protein, no added sugar, healthy fats", "healthScore": 85 },
+    { "name": "Homemade Hazelnut Spread", "reason": "Control over ingredients and sugar content", "healthScore": 78 }
+  ],
+  "soda": [
+    { "name": "Sparkling Water with Lemon", "reason": "Zero sugar, zero calories, natural flavor", "healthScore": 95 },
+    { "name": "Kombucha", "reason": "Probiotic benefits, lower sugar than soda", "healthScore": 80 },
+    { "name": "Coconut Water", "reason": "Natural electrolytes, no artificial sweeteners", "healthScore": 88 }
+  ],
+  "chips": [
+    { "name": "Baked Vegetable Chips", "reason": "Lower fat, more fiber, natural ingredients", "healthScore": 75 },
+    { "name": "Air-Popped Popcorn", "reason": "Whole grain, low calorie, high fiber snack", "healthScore": 82 },
+    { "name": "Roasted Nuts Mix", "reason": "Healthy fats, protein-rich, satisfying crunch", "healthScore": 80 }
+  ],
+  "candy": [
+    { "name": "Dark Chocolate (70%+)", "reason": "Rich in antioxidants, lower sugar content", "healthScore": 72 },
+    { "name": "Dried Fruit Mix", "reason": "Natural sugars, fiber, and vitamins", "healthScore": 78 },
+    { "name": "Energy Balls (Date-based)", "reason": "Natural sweetness, protein, no additives", "healthScore": 85 }
+  ],
+  "cereal": [
+    { "name": "Steel-Cut Oatmeal", "reason": "Whole grain, low glycemic index, heart-healthy", "healthScore": 90 },
+    { "name": "Muesli (No Added Sugar)", "reason": "Whole grains, nuts, seeds, dried fruits", "healthScore": 85 },
+    { "name": "Chia Seed Pudding", "reason": "High omega-3, fiber, and protein", "healthScore": 88 }
+  ],
+  "instant noodles": [
+    { "name": "Whole Wheat Pasta", "reason": "Higher fiber, more nutrients, no MSG", "healthScore": 78 },
+    { "name": "Rice Noodles (Plain)", "reason": "Simpler ingredients, no artificial additives", "healthScore": 72 },
+    { "name": "Zucchini Noodles", "reason": "Low carb, nutrient-dense, no processed ingredients", "healthScore": 92 }
+  ],
+  "energy drink": [
+    { "name": "Green Tea", "reason": "Natural caffeine, antioxidants, no sugar", "healthScore": 92 },
+    { "name": "Black Coffee", "reason": "Natural energy boost, zero calories", "healthScore": 88 },
+    { "name": "Matcha Latte", "reason": "Sustained energy, L-theanine for calm focus", "healthScore": 85 }
+  ],
+  "processed meat": [
+    { "name": "Grilled Chicken Breast", "reason": "Lean protein, no preservatives or nitrites", "healthScore": 88 },
+    { "name": "Baked Salmon", "reason": "Omega-3 fatty acids, high quality protein", "healthScore": 92 },
+    { "name": "Lentil Patties", "reason": "Plant protein, fiber-rich, no artificial additives", "healthScore": 85 }
+  ],
+  "ice cream": [
+    { "name": "Greek Yogurt with Berries", "reason": "Probiotic-rich, high protein, lower sugar", "healthScore": 82 },
+    { "name": "Banana Nice Cream", "reason": "Just frozen bananas — no added sugar or cream", "healthScore": 90 },
+    { "name": "Coconut Milk Ice Cream", "reason": "Dairy-free, often lower in sugar", "healthScore": 72 }
+  ],
+  "juice": [
+    { "name": "Whole Fresh Fruit", "reason": "Contains fiber, slower sugar absorption", "healthScore": 92 },
+    { "name": "Infused Water", "reason": "Zero calories, natural flavor from fresh fruits", "healthScore": 96 },
+    { "name": "Fresh-Pressed Vegetable Juice", "reason": "Nutrient-dense, lower sugar than fruit juice", "healthScore": 85 }
+  ],
+  "default": [
+    { "name": "Fresh Whole Foods", "reason": "Unprocessed foods with natural nutrients", "healthScore": 95 },
+    { "name": "Organic Alternative", "reason": "Fewer pesticides, no artificial additives", "healthScore": 82 },
+    { "name": "Homemade Version", "reason": "Full control over ingredients and portions", "healthScore": 88 }
+  ]
+}

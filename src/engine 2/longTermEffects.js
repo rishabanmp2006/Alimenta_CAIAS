@@ -54,7 +54,8 @@ const SEVERITY_MAP = {
   'Water retention': 1,
   'Hypertension': 3,
   'Possible digestive issues': 1,
-  'Tooth decay': 1
+  'Tooth decay': 1,
+  'Possible carcinogenicity': 4
 };
 
 /**

@@ -1,66 +1,59 @@
-const CACHE_NAME = 'alimenta-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/src/main.jsx',
-  '/src/index.css',
-  '/src/data/ingredientDB.json',
-  '/src/data/alternativesDB.json'
-];
+const CACHE_NAME = 'alimenta-v2';
 
-// Install service worker and cache assets
+// Only cache the bare minimum — let Vite handle everything else
+const urlsToCache = ['/', '/manifest.json'];
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(urlsToCache);
+    }).catch(() => {})
   );
+  self.skipWaiting();
 });
 
-// Fetch from cache first, then network
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
-
-        return fetch(event.request).then((response) => {
-          // Don't cache if not a success response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
-
-          // Clone the response
-          const responseToCache = response.clone();
-
-          caches.open(CACHE_NAME)
-            .then((cache) => {
-              cache.put(event.request, responseToCache);
-            });
-
-          return response;
-        });
-      })
-  );
-});
-
-// Clean up old caches
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+    caches.keys().then((cacheNames) =>
+      Promise.all(
+        cacheNames.filter((n) => n !== CACHE_NAME).map((n) => caches.delete(n))
+      )
+    )
   );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  const { request } = event;
+
+  // Never intercept: non-GET, API calls, Vite internals
+  if (
+    request.method !== 'GET' ||
+    request.url.includes('api.anthropic.com') ||
+    request.url.includes('openfoodfacts.org') ||
+    request.url.includes('/src/') ||
+    request.url.includes('@vite') ||
+    request.url.includes('@react-refresh') ||
+    request.url.startsWith('chrome-extension')
+  ) {
+    return; // Let browser handle it normally
+  }
+
+  // Navigation requests: network first, fallback to cached index
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then((res) => {
+          if (res && res.status === 200) {
+            caches.open(CACHE_NAME).then((c) => c.put(request, res.clone()));
+          }
+          return res;
+        })
+        .catch(() => caches.match('/'))
+    );
+    return;
+  }
+
+  // Everything else: network only, no caching
+  event.respondWith(fetch(request).catch(() => caches.match(request)));
 });

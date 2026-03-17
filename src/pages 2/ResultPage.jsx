@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { parseIngredients, detectCategory } from '../engine/parser';
 import { classifyIngredients } from '../engine/classifier';
@@ -18,14 +18,12 @@ import LongTermEffects from '../components/LongTermEffects';
 import HiddenDangers from '../components/HiddenDangers';
 import AlternativeSuggestions from '../components/AlternativeSuggestions';
 import TrustScore from '../components/TrustScore';
-import AIChatAssistant from '../components/AIChatAssistant';
 
 export default function ResultPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const { addToHistory } = useHistory();
   const [profile, setProfile] = useState('general');
-  const savedIdRef = useRef(null);
 
   const product = location.state?.product;
 
@@ -54,11 +52,11 @@ export default function ResultPage() {
   }, [parsedIngredients, profile, product]);
 
   useEffect(() => {
-    if (product && analysis && savedIdRef.current !== product.id) {
-      savedIdRef.current = product.id;
+    if (product && analysis) {
       addToHistory({ ...product, healthScore: analysis.healthScore });
     }
-  }, [product, analysis, addToHistory]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [product?.id]);
 
   if (!product || !analysis) return null;
 
@@ -104,15 +102,6 @@ export default function ResultPage() {
         {/* 4. Summary */}
         <div className="animate-fade-in-up delay-4">
           <SmartSummary summary={analysis.summary} productName={product.name} />
-        </div>
-
-        {/* 4.5. AI Chat Assistant */}
-        <div className="animate-fade-in-up delay-4">
-          <AIChatAssistant 
-            product={product} 
-            analysis={analysis} 
-            profile={profile}
-          />
         </div>
 
         {/* 5. Trust Score */}

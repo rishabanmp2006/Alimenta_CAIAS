@@ -48,10 +48,12 @@ export async function searchProducts(query) {
     const data = await response.json();
     
     if (data.products && data.products.length > 0) {
-      const withIngredients = data.products.filter(p => p.product_name && p.ingredients_text);
-      const products = (withIngredients.length > 0 ? withIngredients : data.products.filter(p => p.product_name))
-        .map(normalizeProduct);
-      return { success: true, products };
+      return {
+        success: true,
+        products: data.products
+          .filter(p => p.product_name && p.ingredients_text)
+          .map(normalizeProduct)
+      };
     }
     return { success: false, error: 'No products found' };
   } catch (error) {

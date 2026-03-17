@@ -24,12 +24,17 @@ export default function ImageScanner({ onProductDetected }) {
         reader.readAsDataURL(file);
       });
 
+      const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
+      if (!apiKey) throw new Error('No API key configured');
+
       // Try to extract text using Claude's vision capability
       const response = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'anthropic-version': '2023-06-01'
+          'anthropic-version': '2023-06-01',
+          'x-api-key': apiKey,
+          'anthropic-dangerous-direct-browser-access': 'true'
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
