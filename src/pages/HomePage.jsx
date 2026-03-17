@@ -15,10 +15,13 @@ export default function HomePage() {
   const [error, setError] = useState('');
   const [showBarcodeScanner, setShowBarcodeScanner] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [backgroundLoading, setBackgroundLoading] = useState(false);
   const navigate = useNavigate();
   const { history } = useHistory();
   const { theme, toggleTheme } = useTheme();
   const debounceTimerRef = useRef(null);
+  // Track current search so stale background updates don't overwrite newer searches
+  const currentQueryRef = useRef('');
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
@@ -39,26 +42,37 @@ export default function HomePage() {
       setLoading(true);
       setError('');
       setSearchQuery(query);
+      currentQueryRef.current = query;
 
-      const result = await searchProducts(query);
+      // onUpdate is called when OpenFoodFacts background results arrive
+      const onUpdate = (updatedProducts) => {
+        // Only apply if this is still the active search
+        if (currentQueryRef.current !== query) return;
+        setResults(updatedProducts);
+        setBackgroundLoading(false);
+      };
+
+      const result = await searchProducts(query, onUpdate);
       setLoading(false);
 
       if (result.success && result.products.length > 0) {
         setResults(result.products);
         setError('');
+        // Show subtle indicator that more results may be coming from OFF
+        setBackgroundLoading(true);
+        // Auto-hide after 10s in case OFF never responds
+        setTimeout(() => setBackgroundLoading(false), 10000);
       } else {
         setResults([]);
+        setBackgroundLoading(false);
         setError(
-          `No results for "${query}". No results found — try a simpler or English term (e.g. "chips", "chocolate milk").`
+          `No results for "${query}". Try a simpler or English term — e.g. "chips", "cola", "biscuit".`
         );
       }
     };
 
-    if (immediate) {
-      performSearch();
-    } else {
-      debounceTimerRef.current = setTimeout(performSearch, 300);
-    }
+    if (immediate) performSearch();
+    else debounceTimerRef.current = setTimeout(performSearch, 300);
   }, []);
 
   const handleBarcode = async (barcode) => {
@@ -73,7 +87,7 @@ export default function HomePage() {
     if (result.success) {
       navigateToResult(result.product);
     } else {
-      setError(`Product not found for barcode: ${barcode}. It may not be in the OpenFoodFacts database.`);
+      setError(`Product not found for barcode: ${barcode}.`);
     }
   };
 
@@ -160,7 +174,7 @@ export default function HomePage() {
       {loading && results.length === 0 && (
         <div className="space-y-3 animate-fade-in">
           <p className="text-[13px] text-text-tertiary text-center mb-2">
-            Searching USDA + OpenFoodFacts databases…
+            Searching USDA database…
           </p>
           {[1, 2, 3].map(i => (
             <div key={i} className="card p-4 flex gap-4 items-center">
@@ -178,12 +192,9 @@ export default function HomePage() {
       {error && !loading && (
         <div className="mb-8 animate-fade-in">
           <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-center">
-            <p className="text-[13px] text-red-700 font-medium mb-2">
-              {error}
-            </p>
-            {/* Paste fallback suggestion */}
-            <p className="text-[12px] text-red-500">
-              💡 Tip: Use "Paste Ingredients" tab to manually analyse any product's ingredient list.
+            <p className="text-[13px] text-red-700 font-medium mb-2">{error}</p>
+            <p className="text-[12px] text-red-400">
+              💡 Tip: Use "Paste Ingredients" tab to analyse any product manually.
             </p>
           </div>
         </div>
@@ -192,7 +203,16 @@ export default function HomePage() {
       {/* Results */}
       {results.length > 0 && !loading && (
         <div className="animate-fade-in-up delay-2 mb-12">
-          <p className="section-title">Results ({results.length}) for "{searchQuery}"</p>
+          <div className="flex items-center justify-between mb-3">
+            <p className="section-title mb-0">
+              Results ({results.length}) for "{searchQuery}"
+            </p>
+            {backgroundLoading && (
+              <span className="text-[11px] text-text-tertiary animate-pulse">
+                Loading more…
+              </span>
+            )}
+          </div>
           <div className="space-y-2">
             {results.map((product, idx) => (
               <button
@@ -216,7 +236,7 @@ export default function HomePage() {
                   <p className="text-[14px] font-semibold text-text-primary truncate">{product.name}</p>
                   <p className="text-[12px] text-text-tertiary truncate">{product.brand}</p>
                   {!product.ingredients && (
-                    <p className="text-[11px] text-yellow-500 mt-0.5">⚠ Partial data — no ingredient list</p>
+                    <p className="text-[11px] text-yellow-500 mt-0.5">⚠ No ingredient list available</p>
                   )}
                 </div>
                 <span className="text-text-tertiary text-[14px]">→</span>
@@ -258,9 +278,7 @@ export default function HomePage() {
                     onClick={() => navigateToResult(item)}
                     className="card w-full p-3 flex items-center gap-3 text-left hover:shadow-md transition-all"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-surface-secondary flex items-center justify-center shrink-0 text-sm text-text-tertiary">
-                      📦
-                    </div>
+                    <div className="w-8 h-8 rounded-xl bg-surface-secondary flex items-center justify-center shrink-0 text-sm text-text-tertiary">📦</div>
                     <div className="flex-1 min-w-0">
                       <p className="text-[13px] font-medium text-text-primary truncate">{item.name}</p>
                       <p className="text-[11px] text-text-tertiary">{item.brand}</p>
@@ -273,7 +291,6 @@ export default function HomePage() {
         </>
       )}
 
-      {/* Barcode Scanner Modal */}
       {showBarcodeScanner && (
         <BarcodeScanner
           onBarcodeDetected={handleBarcode}
