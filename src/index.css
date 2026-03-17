@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* ── Custom Theme ── */
+@theme {
+  --color-dark-900: #0a0e17;
+  --color-dark-800: #0f1522;
+  --color-dark-700: #151d2e;
+  --color-dark-600: #1c2740;
+  --color-dark-500: #253352;
+  --color-safe: #22c55e;
+  --color-safe-dim: #166534;
+  --color-risky: #f59e0b;
+  --color-risky-dim: #92400e;
+  --color-avoid: #ef4444;
+  --color-avoid-dim: #991b1b;
+  --color-accent: #6366f1;
+  --color-accent-dim: #3730a3;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Base styles ── */
+body {
+  background: var(--color-dark-900);
+  color: #e2e8f0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-dark-800); }
+::-webkit-scrollbar-thumb { background: var(--color-dark-500); border-radius: 3px; }
+
+/* ── Animations ── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px 0 currentColor; }
+  50% { box-shadow: 0 0 20px 4px currentColor; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes score-fill {
+  from { stroke-dashoffset: var(--circumference); }
+  to { stroke-dashoffset: var(--dash-offset); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out both;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-score-fill {
+  animation: score-fill 1.5s ease-out both;
+}
+
+/* ── Stagger delays ── */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ── Glass card ── */
+.glass-card {
+  background: rgba(15, 21, 34, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 1rem;
+}
+
+/* ── Badge glow variants ── */
+.badge-safe { color: var(--color-safe); border-color: var(--color-safe); }
+.badge-risky { color: var(--color-risky); border-color: var(--color-risky); }
+.badge-avoid { color: var(--color-avoid); border-color: var(--color-avoid); }
