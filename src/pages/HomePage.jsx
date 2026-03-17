@@ -1,26 +1,24 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
+import BarcodeScanner from '../components/BarcodeScanner';
 import ImageScanner from '../components/ImageScanner';
 import VoiceCommands from '../components/VoiceCommands';
 import EducationalGame from '../components/EducationalGame';
 import { searchProducts, fetchProductByBarcode } from '../api/openFoodFacts';
-import { parseIngredients } from '../engine/parser';
 import { useHistory } from '../hooks/useHistory';
-
-// Simple cache to speed up repeated searches
-const searchCache = new Map();
+import { useTheme } from '../contexts/ThemeContext';
 
 export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [error, setError] = useState('');
-  const [showGame, setShowGame] = useState(false);
+  const [showBarcodeScanner, setShowBarcodeScanner] = useState(false);
   const navigate = useNavigate();
   const { history } = useHistory();
+  const { theme, toggleTheme } = useTheme();
   const debounceTimerRef = useRef(null);
 
-  // Register service worker for PWA
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js').catch(() => {
@@ -30,7 +28,11 @@ export default function HomePage() {
   }, []);
 
   const handleSearch = useCallback(async (query, immediate = false) => {
-    // Clear previous debounce timer
+    if (!query || query.trim().length < 2) {
+      setResults([]);
+      return;
+    }
+
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
     }
@@ -38,45 +40,39 @@ export default function HomePage() {
     const performSearch = async () => {
       setLoading(true);
       setError('');
-      setResults([]);
-      
-      // Check cache first
-      const cacheKey = query.toLowerCase().trim();
-      if (searchCache.has(cacheKey)) {
-        setResults(searchCache.get(cacheKey));
-        setLoading(false);
-        return;
-      }
       
       const result = await searchProducts(query);
       setLoading(false);
       
       if (result.success) {
-        // Cache the results for 5 minutes
-        searchCache.set(cacheKey, result.products);
-        setTimeout(() => searchCache.delete(cacheKey), 5 * 60 * 1000);
         setResults(result.products);
       } else {
         setError('No products found. Try a different search term.');
+        setResults([]);
       }
     };
 
     if (immediate) {
       performSearch();
     } else {
-      // Debounce for 300ms for better UX
       debounceTimerRef.current = setTimeout(performSearch, 300);
     }
   }, []);
 
   const handleBarcode = async (barcode) => {
+    setShowBarcodeScanner(false);
     setLoading(true);
     setError('');
     setResults([]);
+    
     const result = await fetchProductByBarcode(barcode);
     setLoading(false);
-    if (result.success) navigateToResult(result.product);
-    else setError('Product not found. Check the barcode and try again.');
+    
+    if (result.success) {
+      navigateToResult(result.product);
+    } else {
+      setError(`Product not found for barcode: ${barcode}`);
+    }
   };
 
   const handlePaste = (ingredientText) => {
@@ -112,6 +108,15 @@ export default function HomePage() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-20">
+      {/* Theme Toggle */}
+      <button
+        onClick={toggleTheme}
+        className="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center hover:bg-surface-secondary transition-colors shadow-md"
+        aria-label="Toggle theme"
+      >
+        {theme === 'light' ? '🌙' : '☀️'}
+      </button>
+
       {/* Voice Commands */}
       <VoiceCommands onCommand={handleVoiceCommand} />
 
@@ -123,12 +128,29 @@ export default function HomePage() {
           <span className="text-accent">Food.</span>
         </h1>
         <p className="text-[17px] text-text-secondary mt-4 max-w-md mx-auto leading-relaxed">
-          Scan any product and understand exactly what you're consuming.
+          Scan barcodes instantly and understand exactly what you're consuming.
         </p>
       </div>
 
+      {/* Barcode Scanner Button */}
+      <div className="mb-4 animate-fade-in-up delay-1">
+        <button
+          onClick={() => setShowBarcodeScanner(true)}
+          className="w-full card p-5 flex items-center gap-4 text-left bg-gradient-to-r from-accent to-accent-dark text-white border-0 hover:shadow-md transition-all"
+        >
+          <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center text-3xl shrink-0">
+            📷
+          </div>
+          <div className="flex-1">
+            <p className="text-[16px] font-bold">Scan Barcode Live</p>
+            <p className="text-[13px] opacity-90">Use camera for instant barcode detection</p>
+          </div>
+          <span className="text-white text-[18px] font-bold">→</span>
+        </button>
+      </div>
+
       {/* Image Scanner */}
-      <div className="mb-6 animate-fade-in-up delay-1">
+      <div className="mb-4 animate-fade-in-up delay-1">
         <ImageScanner onProductDetected={handleImageDetection} />
       </div>
 
@@ -169,22 +191,32 @@ export default function HomePage() {
       {/* Results */}
       {results.length > 0 && (
         <div className="animate-fade-in-up delay-2 mb-12">
-          <p className="section-title">Results</p>
+          <p className="section-title">Results ({results.length})</p>
           <div className="space-y-2">
             {results.map((product, idx) => (
               <button
                 key={product.id + idx}
                 onClick={() => navigateToResult(product)}
-                className="card card-interactive w-full p-4 flex items-center gap-4 text-left"
+                className="card w-full p-4 flex items-center gap-4 text-left hover:shadow-md transition-all"
               >
                 {product.image ? (
-                  <img src={product.image} alt="" className="w-14 h-14 object-contain rounded-xl bg-surface-secondary shrink-0" />
+                  <img 
+                    src={product.image} 
+                    alt="" 
+                    className="w-14 h-14 object-contain rounded-xl bg-surface-secondary shrink-0" 
+                  />
                 ) : (
-                  <div className="w-14 h-14 rounded-xl bg-surface-secondary flex items-center justify-center shrink-0 text-xl text-text-tertiary">📦</div>
+                  <div className="w-14 h-14 rounded-xl bg-surface-secondary flex items-center justify-center shrink-0 text-xl text-text-tertiary">
+                    📦
+                  </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="text-[14px] font-semibold text-text-primary truncate">{product.name}</p>
-                  <p className="text-[12px] text-text-tertiary truncate">{product.brand}</p>
+                  <p className="text-[14px] font-semibold text-text-primary truncate">
+                    {product.name}
+                  </p>
+                  <p className="text-[12px] text-text-tertiary truncate">
+                    {product.brand}
+                  </p>
                 </div>
                 <span className="text-text-tertiary text-[14px]">→</span>
               </button>
@@ -193,17 +225,17 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* Empty state — Quick Try */}
+      {/* Empty state */}
       {results.length === 0 && !loading && (
         <>
           <div className="mb-12 animate-fade-in-up delay-2">
             <p className="section-title text-center">Try a product</p>
             <div className="flex flex-wrap gap-2 justify-center">
-              {['Nutella', 'Coca-Cola', 'Doritos', 'Oreo', 'Red Bull'].map(name => (
+              {['Nutella', 'Coca-Cola', 'Doritos', 'Oreo', 'Red Bull', 'Pringles'].map(name => (
                 <button
                   key={name}
                   onClick={() => handleSearch(name, true)}
-                  className="px-4 py-2 bg-white text-text-secondary rounded-full text-[13px] font-medium hover:bg-text-primary hover:text-white transition-all duration-200 border border-border-light"
+                  className="px-4 py-2 bg-surface-secondary text-text-primary rounded-full text-[13px] font-medium hover:bg-accent hover:text-white transition-all duration-200 border border-border"
                 >
                   {name}
                 </button>
@@ -211,12 +243,10 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Educational Game */}
           <div className="mb-12 animate-fade-in-up delay-3">
             <EducationalGame />
           </div>
 
-          {/* Recent history */}
           {history.length > 0 && (
             <div className="animate-fade-in-up delay-4">
               <p className="section-title">Recent</p>
@@ -225,11 +255,15 @@ export default function HomePage() {
                   <button
                     key={item.id}
                     onClick={() => navigateToResult(item)}
-                    className="card w-full p-3 flex items-center gap-3 text-left hover:shadow-sm transition-all"
+                    className="card w-full p-3 flex items-center gap-3 text-left hover:shadow-md transition-all"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-surface-secondary flex items-center justify-center shrink-0 text-sm text-text-tertiary">📦</div>
+                    <div className="w-8 h-8 rounded-xl bg-surface-secondary flex items-center justify-center shrink-0 text-sm text-text-tertiary">
+                      📦
+                    </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[13px] font-medium text-text-primary truncate">{item.name}</p>
+                      <p className="text-[13px] font-medium text-text-primary truncate">
+                        {item.name}
+                      </p>
                       <p className="text-[11px] text-text-tertiary">{item.brand}</p>
                     </div>
                   </button>
@@ -238,6 +272,14 @@ export default function HomePage() {
             </div>
           )}
         </>
+      )}
+
+      {/* Barcode Scanner Modal */}
+      {showBarcodeScanner && (
+        <BarcodeScanner
+          onBarcodeDetected={handleBarcode}
+          onClose={() => setShowBarcodeScanner(false)}
+        />
       )}
     </div>
   );
