@@ -1,8 +1,8 @@
 const STATUS_CONFIG = {
-  safe: { emoji: '✅', bg: 'bg-safe/10', border: 'border-safe/30', text: 'text-safe', label: 'Safe' },
-  risky: { emoji: '⚠️', bg: 'bg-risky/10', border: 'border-risky/30', text: 'text-risky', label: 'Risky' },
-  avoid: { emoji: '❌', bg: 'bg-avoid/10', border: 'border-avoid/30', text: 'text-avoid', label: 'Avoid' },
-  unknown: { emoji: '❓', bg: 'bg-slate-500/10', border: 'border-slate-500/30', text: 'text-slate-400', label: 'Unknown' },
+  safe: { dot: 'bg-safe', text: 'text-[#1a7a34]', bg: 'bg-safe-bg', label: 'Safe' },
+  risky: { dot: 'bg-risky', text: 'text-[#9a5c00]', bg: 'bg-risky-bg', label: 'Caution' },
+  avoid: { dot: 'bg-avoid', text: 'text-[#c5221f]', bg: 'bg-avoid-bg', label: 'Avoid' },
+  unknown: { dot: 'bg-text-tertiary', text: 'text-text-secondary', bg: 'bg-surface-secondary', label: 'Unknown' },
 };
 
 export default function IngredientCard({ ingredient, index }) {
@@ -10,42 +10,29 @@ export default function IngredientCard({ ingredient, index }) {
 
   return (
     <div
-      className={`animate-fade-in-up p-4 rounded-xl border ${config.bg} ${config.border} transition-all duration-300 hover:scale-[1.02]`}
-      style={{ animationDelay: `${index * 0.05}s` }}
+      className="animate-fade-in-up flex items-start gap-3 p-4 rounded-2xl bg-white border border-border-light hover:shadow-sm transition-all duration-200"
+      style={{ animationDelay: `${index * 0.04}s` }}
     >
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <span className="text-lg">{config.emoji}</span>
-            <h4 className="font-semibold text-slate-200 capitalize truncate">
-              {ingredient.name}
-            </h4>
-          </div>
-          <p className="text-sm text-slate-400 mt-1 line-clamp-2">
-            {ingredient.description}
-          </p>
-          {/* Badges */}
-          <div className="flex flex-wrap gap-1.5 mt-2">
-            {ingredient.isAdditive && (
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/20 font-medium">
-                Additive
-              </span>
-            )}
-            {ingredient.isPreservative && (
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/20 font-medium">
-                Preservative
-              </span>
-            )}
-            {ingredient.isArtificial && (
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/20 font-medium">
-                Artificial
-              </span>
-            )}
-          </div>
+      <div className={`w-2 h-2 rounded-full mt-2 shrink-0 ${config.dot}`} />
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center justify-between gap-2">
+          <h4 className="text-[14px] font-semibold text-text-primary capitalize">
+            {ingredient.name}
+          </h4>
+          <span className={`badge ${config.bg} ${config.text}`}>
+            {config.label}
+          </span>
         </div>
-        <span className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold uppercase ${config.bg} ${config.text} border ${config.border}`}>
-          {config.label}
-        </span>
+        <p className="text-[13px] text-text-secondary mt-1 leading-relaxed">
+          {ingredient.description}
+        </p>
+        {(ingredient.isAdditive || ingredient.isPreservative || ingredient.isArtificial) && (
+          <div className="flex flex-wrap gap-1.5 mt-2">
+            {ingredient.isAdditive && <span className="badge badge-neutral text-[11px]">Additive</span>}
+            {ingredient.isPreservative && <span className="badge badge-neutral text-[11px]">Preservative</span>}
+            {ingredient.isArtificial && <span className="badge badge-neutral text-[11px]">Artificial</span>}
+          </div>
+        )}
       </div>
     </div>
   );

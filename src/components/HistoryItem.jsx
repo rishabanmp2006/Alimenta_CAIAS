@@ -3,34 +3,28 @@ export default function HistoryItem({ item, onSelect, onRemove }) {
   const timeAgo = getTimeAgo(date);
 
   return (
-    <div className="glass-card p-4 flex items-center gap-4 hover:border-accent/30 transition-all duration-200 cursor-pointer group"
+    <div
+      className="card card-interactive p-4 flex items-center gap-4 cursor-pointer group"
       onClick={() => onSelect(item)}
     >
-      {/* Image */}
       {item.image ? (
-        <img
-          src={item.image}
-          alt={item.name}
-          className="w-12 h-12 object-contain rounded-lg bg-white/5 shrink-0"
-        />
+        <img src={item.image} alt={item.name} className="w-12 h-12 object-contain rounded-xl bg-surface-secondary shrink-0" />
       ) : (
-        <div className="w-12 h-12 rounded-lg bg-dark-600 flex items-center justify-center shrink-0">
-          <span className="text-xl">📦</span>
+        <div className="w-12 h-12 rounded-xl bg-surface-secondary flex items-center justify-center shrink-0">
+          <span className="text-text-tertiary text-lg">📦</span>
         </div>
       )}
 
-      {/* Info */}
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-semibold text-slate-200 truncate">{item.name}</p>
-        <p className="text-xs text-slate-500">{item.brand} • {timeAgo}</p>
+        <p className="text-[14px] font-semibold text-text-primary truncate">{item.name}</p>
+        <p className="text-[12px] text-text-tertiary">{item.brand} · {timeAgo}</p>
       </div>
 
-      {/* Score badge */}
       {item.healthScore && (
         <div
-          className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-sm font-bold"
+          className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-[13px] font-bold"
           style={{
-            backgroundColor: `${item.healthScore.color}15`,
+            backgroundColor: `${item.healthScore.color}12`,
             color: item.healthScore.color
           }}
         >
@@ -38,11 +32,9 @@ export default function HistoryItem({ item, onSelect, onRemove }) {
         </div>
       )}
 
-      {/* Remove button */}
       <button
         onClick={(e) => { e.stopPropagation(); onRemove(item.id); }}
-        className="shrink-0 opacity-0 group-hover:opacity-100 text-slate-500 hover:text-avoid transition-all text-sm"
-        title="Remove"
+        className="shrink-0 opacity-0 group-hover:opacity-100 w-8 h-8 rounded-full flex items-center justify-center text-text-tertiary hover:text-avoid hover:bg-avoid-bg transition-all text-[13px]"
       >
         ✕
       </button>

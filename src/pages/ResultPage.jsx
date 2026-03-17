@@ -9,14 +9,14 @@ import { detectHiddenDangers, getDangerSummary } from '../engine/hiddenDangers';
 import { getAlternatives } from '../engine/alternatives';
 import { useHistory } from '../hooks/useHistory';
 
-import RiskDashboard from '../components/RiskDashboard';
-import SmartSummary from '../components/SmartSummary';
+import QuickDecision from '../components/QuickDecision';
 import ProfileSelector from '../components/ProfileSelector';
+import SmartSummary from '../components/SmartSummary';
+import RiskDashboard from '../components/RiskDashboard';
 import IngredientList from '../components/IngredientList';
 import LongTermEffects from '../components/LongTermEffects';
 import HiddenDangers from '../components/HiddenDangers';
 import AlternativeSuggestions from '../components/AlternativeSuggestions';
-import QuickDecision from '../components/QuickDecision';
 import TrustScore from '../components/TrustScore';
 
 export default function ResultPage() {
@@ -24,25 +24,20 @@ export default function ResultPage() {
   const navigate = useNavigate();
   const { addToHistory } = useHistory();
   const [profile, setProfile] = useState('general');
-  
+
   const product = location.state?.product;
 
   useEffect(() => {
-    if (!product) {
-      navigate('/');
-    }
+    if (!product) navigate('/');
   }, [product, navigate]);
 
-  // Parse ingredients once
   const parsedIngredients = useMemo(() => {
     if (!product?.ingredients) return [];
     return parseIngredients(product.ingredients);
   }, [product]);
 
-  // All analysis is profile-dependent
   const analysis = useMemo(() => {
     if (parsedIngredients.length === 0) return null;
-
     const classified = classifyIngredients(parsedIngredients, profile);
     const healthScore = computeHealthScore(classified);
     const trustScore = computeTrustScore(classified);
@@ -53,28 +48,12 @@ export default function ResultPage() {
     const dangersSummary = getDangerSummary(dangers);
     const category = detectCategory(product?.name, parsedIngredients);
     const alternatives = getAlternatives(category);
-
-    return {
-      classified,
-      healthScore,
-      trustScore,
-      summary,
-      effects,
-      effectsSummary,
-      dangers,
-      dangersSummary,
-      category,
-      alternatives,
-    };
+    return { classified, healthScore, trustScore, summary, effects, effectsSummary, dangers, dangersSummary, category, alternatives };
   }, [parsedIngredients, profile, product]);
 
-  // Save to history on first load
   useEffect(() => {
     if (product && analysis) {
-      addToHistory({
-        ...product,
-        healthScore: analysis.healthScore,
-      });
+      addToHistory({ ...product, healthScore: analysis.healthScore });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [product?.id]);
@@ -82,73 +61,74 @@ export default function ResultPage() {
   if (!product || !analysis) return null;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-      {/* Back button + Product header */}
+    <div className="max-w-2xl mx-auto px-6 py-8">
+      {/* Back + Product header */}
       <div className="flex items-center gap-4 mb-8 animate-fade-in-up">
         <button
           onClick={() => navigate('/')}
-          className="shrink-0 w-10 h-10 rounded-xl bg-dark-700 flex items-center justify-center text-slate-400 hover:text-accent hover:bg-accent/10 transition-all"
+          className="shrink-0 w-9 h-9 rounded-full bg-surface-secondary flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-border-light transition-all text-[14px]"
         >
           ←
         </button>
-        <div className="flex items-center gap-4 flex-1 min-w-0">
+        <div className="flex items-center gap-3 flex-1 min-w-0">
           {product.image && (
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-14 h-14 object-contain rounded-lg bg-white/5 shrink-0"
-            />
+            <img src={product.image} alt={product.name} className="w-11 h-11 object-contain rounded-xl bg-surface-secondary shrink-0" />
           )}
           <div className="min-w-0">
-            <h1 className="text-xl font-bold text-slate-200 truncate">{product.name}</h1>
-            <p className="text-sm text-slate-500">{product.brand}</p>
+            <h1 className="text-[18px] font-bold text-text-primary truncate">{product.name}</h1>
+            <p className="text-[13px] text-text-tertiary">{product.brand}</p>
           </div>
         </div>
       </div>
 
-      {/* Quick Decision */}
-      <div className="mb-6 animate-fade-in-up delay-100">
-        <QuickDecision healthScore={analysis.healthScore} />
-      </div>
+      {/* Vertical layout — each section stacked */}
+      <div className="space-y-8">
+        {/* 1. Quick Decision */}
+        <div className="animate-fade-in-up delay-1">
+          <QuickDecision healthScore={analysis.healthScore} />
+        </div>
 
-      {/* Profile + Summary row */}
-      <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <div className="animate-fade-in-up delay-200">
+        {/* 2. Profile selector */}
+        <div className="animate-fade-in-up delay-2">
           <ProfileSelector selected={profile} onChange={setProfile} />
         </div>
-        <div className="animate-fade-in-up delay-200">
+
+        {/* 3. Risk Dashboard */}
+        <div className="animate-fade-in-up delay-3">
+          <p className="section-title">Health Score</p>
+          <RiskDashboard healthScore={analysis.healthScore} classified={analysis.classified} />
+        </div>
+
+        {/* 4. Summary */}
+        <div className="animate-fade-in-up delay-4">
           <SmartSummary summary={analysis.summary} productName={product.name} />
         </div>
-      </div>
 
-      {/* Risk Dashboard */}
-      <div className="mb-6 animate-fade-in-up delay-300">
-        <RiskDashboard healthScore={analysis.healthScore} classified={analysis.classified} />
-      </div>
-
-      {/* Two-column layout */}
-      <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <div className="space-y-6">
-          <div className="animate-fade-in-up delay-300">
-            <LongTermEffects effects={analysis.effects} summary={analysis.effectsSummary} />
-          </div>
-          <div className="animate-fade-in-up delay-400">
-            <HiddenDangers dangers={analysis.dangers} summary={analysis.dangersSummary} />
-          </div>
+        {/* 5. Trust Score */}
+        <div className="animate-fade-in-up delay-5">
+          <p className="section-title">Trust</p>
+          <TrustScore trustScore={analysis.trustScore} />
         </div>
-        <div className="space-y-6">
-          <div className="animate-fade-in-up delay-300">
-            <TrustScore trustScore={analysis.trustScore} />
-          </div>
-          <div className="animate-fade-in-up delay-400">
-            <AlternativeSuggestions alternatives={analysis.alternatives} category={analysis.category} />
-          </div>
-        </div>
-      </div>
 
-      {/* Ingredient Breakdown — full width */}
-      <div className="animate-fade-in-up delay-500">
-        <IngredientList ingredients={analysis.classified} />
+        {/* 6. Long-Term Effects */}
+        <div className="animate-fade-in-up delay-5">
+          <LongTermEffects effects={analysis.effects} summary={analysis.effectsSummary} />
+        </div>
+
+        {/* 7. Hidden Dangers */}
+        <div className="animate-fade-in-up delay-6">
+          <HiddenDangers dangers={analysis.dangers} summary={analysis.dangersSummary} />
+        </div>
+
+        {/* 8. Alternatives */}
+        <div className="animate-fade-in-up delay-6">
+          <AlternativeSuggestions alternatives={analysis.alternatives} category={analysis.category} />
+        </div>
+
+        {/* 9. Ingredient Breakdown */}
+        <div className="animate-fade-in-up delay-7">
+          <IngredientList ingredients={analysis.classified} />
+        </div>
       </div>
     </div>
   );

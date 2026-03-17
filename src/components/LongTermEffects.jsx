@@ -1,40 +1,33 @@
 export default function LongTermEffects({ effects, summary }) {
   if (!effects || effects.length === 0) return null;
 
-  const getSeverityColor = (severity) => {
-    if (severity >= 4) return { bg: 'bg-avoid/10', border: 'border-avoid/30', text: 'text-avoid', dot: 'bg-avoid' };
-    if (severity >= 2) return { bg: 'bg-risky/10', border: 'border-risky/30', text: 'text-risky', dot: 'bg-risky' };
-    return { bg: 'bg-slate-500/10', border: 'border-slate-500/30', text: 'text-slate-400', dot: 'bg-slate-400' };
+  const getSeverityStyle = (s) => {
+    if (s >= 4) return { dot: 'bg-avoid', text: 'text-[#c5221f]' };
+    if (s >= 2) return { dot: 'bg-risky', text: 'text-[#9a5c00]' };
+    return { dot: 'bg-text-tertiary', text: 'text-text-secondary' };
   };
 
   return (
-    <div className="glass-card p-6">
-      <h3 className="text-lg font-bold text-slate-200 mb-2 flex items-center gap-2">
-        <span>⏳</span> Long-Term Effects
-      </h3>
+    <div>
+      <p className="section-title">Long-Term Effects</p>
       {summary && (
-        <p className="text-sm text-slate-400 mb-4 italic">{summary}</p>
+        <p className="text-[14px] text-text-secondary mb-4 leading-relaxed">{summary}</p>
       )}
-      <div className="space-y-2">
-        {effects.slice(0, 8).map((item, idx) => {
-          const colors = getSeverityColor(item.severity);
+      <div className="card divide-y divide-border-light">
+        {effects.slice(0, 6).map((item, idx) => {
+          const style = getSeverityStyle(item.severity);
           return (
-            <div
-              key={idx}
-              className={`flex items-start gap-3 p-3 rounded-lg ${colors.bg} border ${colors.border} animate-fade-in-up`}
-              style={{ animationDelay: `${idx * 0.05}s` }}
-            >
-              <div className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${colors.dot}`} />
+            <div key={idx} className="flex items-start gap-3 p-4">
+              <div className={`w-1.5 h-1.5 rounded-full mt-2 shrink-0 ${style.dot}`} />
               <div className="flex-1 min-w-0">
-                <p className={`text-sm font-medium ${colors.text}`}>{item.effect}</p>
-                <p className="text-xs text-slate-500 mt-0.5">
-                  From: {item.sources.slice(0, 3).join(', ')}
-                  {item.sources.length > 3 ? ` +${item.sources.length - 3} more` : ''}
+                <p className={`text-[14px] font-medium ${style.text}`}>{item.effect}</p>
+                <p className="text-[12px] text-text-tertiary mt-0.5">
+                  {item.sources.slice(0, 3).join(', ')}
                 </p>
               </div>
-              <div className="shrink-0 flex gap-0.5">
-                {Array.from({ length: item.severity }, (_, i) => (
-                  <div key={i} className={`w-1.5 h-3 rounded-sm ${colors.dot}`} />
+              <div className="shrink-0 flex gap-0.5 mt-1.5">
+                {Array.from({ length: Math.min(item.severity, 5) }, (_, i) => (
+                  <div key={i} className={`w-1 h-2.5 rounded-sm ${style.dot} opacity-70`} />
                 ))}
               </div>
             </div>

@@ -6,47 +6,53 @@ export default function IngredientList({ ingredients }) {
 
   if (!ingredients || ingredients.length === 0) return null;
 
-  const filters = [
-    { key: 'all', label: 'All', count: ingredients.length },
-    { key: 'safe', label: '✅ Safe', count: ingredients.filter(i => i.status === 'safe').length },
-    { key: 'risky', label: '⚠️ Risky', count: ingredients.filter(i => i.status === 'risky').length },
-    { key: 'avoid', label: '❌ Avoid', count: ingredients.filter(i => i.status === 'avoid').length },
-  ];
+  const counts = {
+    all: ingredients.length,
+    safe: ingredients.filter(i => i.status === 'safe').length,
+    risky: ingredients.filter(i => i.status === 'risky').length,
+    avoid: ingredients.filter(i => i.status === 'avoid').length,
+  };
 
   const filtered = filter === 'all'
     ? ingredients
     : ingredients.filter(i => i.status === filter);
 
+  const tabs = [
+    { key: 'all', label: 'All' },
+    { key: 'avoid', label: 'Avoid' },
+    { key: 'risky', label: 'Caution' },
+    { key: 'safe', label: 'Safe' },
+  ];
+
   return (
-    <div className="glass-card p-6">
-      <h3 className="text-lg font-bold text-slate-200 mb-4 flex items-center gap-2">
-        <span>🧪</span> Ingredient Breakdown
-      </h3>
+    <div>
+      <p className="section-title">Key Ingredient Risks</p>
 
       {/* Filter tabs */}
-      <div className="flex gap-1 mb-4 bg-dark-800 rounded-xl p-1 overflow-x-auto">
-        {filters.map(f => (
+      <div className="flex gap-2 mb-5">
+        {tabs.map(t => (
           <button
-            key={f.key}
-            onClick={() => setFilter(f.key)}
-            className={`flex-1 min-w-fit py-1.5 px-3 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
-              filter === f.key
-                ? 'bg-accent/20 text-accent'
-                : 'text-slate-400 hover:text-slate-200'
+            key={t.key}
+            onClick={() => setFilter(t.key)}
+            className={`px-3.5 py-1.5 rounded-full text-[13px] font-medium transition-all duration-200 ${
+              filter === t.key
+                ? 'bg-text-primary text-white'
+                : 'bg-white text-text-secondary hover:text-text-primary border border-border-light'
             }`}
           >
-            {f.label} ({f.count})
+            {t.label}
+            <span className="ml-1 opacity-60">{counts[t.key]}</span>
           </button>
         ))}
       </div>
 
-      {/* Ingredient grid */}
-      <div className="grid gap-3 max-h-[500px] overflow-y-auto pr-1">
+      {/* Ingredients */}
+      <div className="space-y-2">
         {filtered.map((ing, idx) => (
           <IngredientCard key={ing.name + idx} ingredient={ing} index={idx} />
         ))}
         {filtered.length === 0 && (
-          <p className="text-sm text-slate-500 text-center py-8">
+          <p className="text-sm text-text-tertiary text-center py-12">
             No ingredients in this category.
           </p>
         )}

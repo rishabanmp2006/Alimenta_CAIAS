@@ -10,63 +10,50 @@ export default function CompareCard({ product, healthScore, classified, trustSco
   } : { safe: 0, risky: 0, avoid: 0 };
 
   return (
-    <div className="glass-card p-5 flex flex-col items-center">
-      {/* Product image */}
+    <div className="card p-6 flex flex-col items-center text-center">
       {product.image && (
         <img
           src={product.image}
           alt={product.name}
-          className="w-20 h-20 object-contain rounded-lg bg-white/5 mb-3"
+          className="w-16 h-16 object-contain rounded-2xl bg-surface-secondary mb-4"
         />
       )}
+      <h4 className="text-[15px] font-bold text-text-primary mb-0.5">{product.name}</h4>
+      <p className="text-[12px] text-text-tertiary mb-5">{product.brand}</p>
 
-      {/* Product info */}
-      <h4 className="text-sm font-bold text-slate-200 text-center mb-1">{product.name}</h4>
-      <p className="text-xs text-slate-500 mb-4">{product.brand}</p>
-
-      {/* Score */}
       {healthScore && (
         <HealthScoreRing
           score={healthScore.score}
           label={healthScore.label}
           color={healthScore.color}
-          size={130}
+          size={120}
         />
       )}
 
-      {/* Quick stats */}
-      <div className="grid grid-cols-3 gap-2 mt-4 w-full">
-        <div className="bg-safe/10 rounded-lg p-2 text-center">
-          <p className="text-base font-bold text-safe">{counts.safe}</p>
-          <p className="text-[9px] text-slate-500 uppercase">Safe</p>
+      <div className="grid grid-cols-3 gap-2 mt-5 w-full">
+        <div className="bg-safe-bg rounded-xl p-2.5">
+          <p className="text-[16px] font-bold text-safe">{counts.safe}</p>
+          <p className="text-[10px] text-text-tertiary uppercase">Safe</p>
         </div>
-        <div className="bg-risky/10 rounded-lg p-2 text-center">
-          <p className="text-base font-bold text-risky">{counts.risky}</p>
-          <p className="text-[9px] text-slate-500 uppercase">Risky</p>
+        <div className="bg-risky-bg rounded-xl p-2.5">
+          <p className="text-[16px] font-bold text-risky">{counts.risky}</p>
+          <p className="text-[10px] text-text-tertiary uppercase">Caution</p>
         </div>
-        <div className="bg-avoid/10 rounded-lg p-2 text-center">
-          <p className="text-base font-bold text-avoid">{counts.avoid}</p>
-          <p className="text-[9px] text-slate-500 uppercase">Avoid</p>
+        <div className="bg-avoid-bg rounded-xl p-2.5">
+          <p className="text-[16px] font-bold text-avoid">{counts.avoid}</p>
+          <p className="text-[10px] text-text-tertiary uppercase">Avoid</p>
         </div>
       </div>
 
-      {/* Trust score */}
       {trustScore && (
-        <div className="mt-3 w-full text-center">
+        <div className="mt-4 w-full">
           <span
-            className="inline-block px-3 py-1 rounded-full text-xs font-semibold"
-            style={{ backgroundColor: `${trustScore.color}15`, color: trustScore.color }}
+            className="inline-block px-3 py-1 rounded-full text-[12px] font-semibold"
+            style={{ backgroundColor: `${trustScore.color}12`, color: trustScore.color }}
           >
             Trust: {trustScore.level}
           </span>
         </div>
-      )}
-
-      {/* Ingredients count */}
-      {classified && (
-        <p className="text-xs text-slate-500 mt-3">
-          {classified.length} ingredients analyzed
-        </p>
       )}
     </div>
   );

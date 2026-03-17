@@ -4,51 +4,41 @@ export default function SmartSummary({ summary, productName }) {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
   const handleVoice = useCallback(() => {
-    if (!('speechSynthesis' in window)) {
-      alert('Speech synthesis is not supported in your browser.');
-      return;
-    }
-
+    if (!('speechSynthesis' in window)) return;
     if (isSpeaking) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
       return;
     }
-
     const utterance = new SpeechSynthesisUtterance(summary);
     utterance.rate = 0.9;
-    utterance.pitch = 1;
     utterance.onend = () => setIsSpeaking(false);
     utterance.onerror = () => setIsSpeaking(false);
-    
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utterance);
     setIsSpeaking(true);
   }, [summary, isSpeaking]);
 
   return (
-    <div className="glass-card p-6">
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex-1">
-          <h3 className="text-lg font-bold text-slate-200 mb-2 flex items-center gap-2">
-            <span>💡</span> Smart Summary
-          </h3>
-          {productName && (
-            <p className="text-accent text-sm font-medium mb-2">{productName}</p>
-          )}
-          <p className="text-slate-300 leading-relaxed text-sm">{summary}</p>
-        </div>
+    <div>
+      <div className="flex items-center justify-between mb-2">
+        <p className="section-title mb-0">Summary</p>
         <button
           onClick={handleVoice}
-          className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
+          className={`w-8 h-8 rounded-full flex items-center justify-center text-sm transition-all duration-200 ${
             isSpeaking
-              ? 'bg-accent/20 text-accent animate-pulse'
-              : 'bg-dark-600 text-slate-400 hover:text-accent hover:bg-accent/10'
+              ? 'bg-accent text-white'
+              : 'bg-surface-secondary text-text-tertiary hover:text-text-primary hover:bg-border-light'
           }`}
-          title={isSpeaking ? 'Stop reading' : 'Read aloud'}
+          title={isSpeaking ? 'Stop' : 'Read aloud'}
         >
-          {isSpeaking ? '⏸️' : '🔊'}
+          {isSpeaking ? '⏸' : '🔊'}
         </button>
+      </div>
+      <div className="card p-5">
+        <p className="text-[15px] text-text-secondary leading-relaxed">
+          {summary}
+        </p>
       </div>
     </div>
   );

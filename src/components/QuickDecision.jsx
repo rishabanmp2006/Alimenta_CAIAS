@@ -1,47 +1,35 @@
 export default function QuickDecision({ healthScore }) {
   if (!healthScore) return null;
 
-  let decision, emoji, bgClass, borderClass, textClass, glowColor;
+  let decision, badgeClass, bgColor;
 
   if (healthScore.score >= 70) {
     decision = 'SAFE';
-    emoji = '✅';
-    bgClass = 'bg-safe/10';
-    borderClass = 'border-safe/40';
-    textClass = 'text-safe';
-    glowColor = '#22c55e';
+    badgeClass = 'text-[#1a7a34] bg-safe-bg';
+    bgColor = '#34c759';
   } else if (healthScore.score >= 40) {
-    decision = 'RISKY';
-    emoji = '⚠️';
-    bgClass = 'bg-risky/10';
-    borderClass = 'border-risky/40';
-    textClass = 'text-risky';
-    glowColor = '#f59e0b';
+    decision = 'MODERATE';
+    badgeClass = 'text-[#9a5c00] bg-risky-bg';
+    bgColor = '#ff9f0a';
   } else {
     decision = 'AVOID';
-    emoji = '❌';
-    bgClass = 'bg-avoid/10';
-    borderClass = 'border-avoid/40';
-    textClass = 'text-avoid';
-    glowColor = '#ef4444';
+    badgeClass = 'text-[#c5221f] bg-avoid-bg';
+    bgColor = '#ff3b30';
   }
 
   return (
-    <div className={`glass-card p-6 ${bgClass} border ${borderClass}`}>
-      <h3 className="text-lg font-bold text-slate-200 mb-4 flex items-center gap-2">
-        <span>⚡</span> Quick Decision
-      </h3>
-      <div className="text-center">
-        <div
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl border-2 animate-pulse-glow"
-          style={{ borderColor: glowColor, color: glowColor }}
-        >
-          <span className="text-4xl">{emoji}</span>
-          <span className="text-3xl font-black tracking-wider">{decision}</span>
-        </div>
-        <p className="text-sm text-slate-400 mt-3">
-          Score: <span className={`font-bold ${textClass}`}>{healthScore.score}/100</span>
+    <div className="card p-6 flex items-center justify-between">
+      <div>
+        <p className="text-[13px] text-text-tertiary font-medium">Quick Decision</p>
+        <p className="text-[28px] font-extrabold tracking-tight mt-1" style={{ color: bgColor }}>
+          {decision}
         </p>
+      </div>
+      <div
+        className="w-16 h-16 rounded-2xl flex items-center justify-center"
+        style={{ backgroundColor: `${bgColor}12` }}
+      >
+        <span className="text-[26px] font-extrabold" style={{ color: bgColor }}>{healthScore.score}</span>
       </div>
     </div>
   );
