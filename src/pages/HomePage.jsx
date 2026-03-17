@@ -14,6 +14,7 @@ export default function HomePage() {
   const [results, setResults] = useState([]);
   const [error, setError] = useState('');
   const [showBarcodeScanner, setShowBarcodeScanner] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const { history } = useHistory();
   const { theme, toggleTheme } = useTheme();
@@ -21,34 +22,35 @@ export default function HomePage() {
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(() => {
-        console.log('Service worker registration failed');
-      });
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
     }
   }, []);
 
   const handleSearch = useCallback(async (query, immediate = false) => {
     if (!query || query.trim().length < 2) {
       setResults([]);
+      setError('');
       return;
     }
 
-    if (debounceTimerRef.current) {
-      clearTimeout(debounceTimerRef.current);
-    }
+    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
 
     const performSearch = async () => {
       setLoading(true);
       setError('');
-      
+      setSearchQuery(query);
+
       const result = await searchProducts(query);
       setLoading(false);
-      
-      if (result.success) {
+
+      if (result.success && result.products.length > 0) {
         setResults(result.products);
+        setError('');
       } else {
-        setError('No products found. Try a different search term.');
         setResults([]);
+        setError(
+          `No results for "${query}". No results found — try a simpler or English term (e.g. "chips", "chocolate milk").`
+        );
       }
     };
 
@@ -64,14 +66,14 @@ export default function HomePage() {
     setLoading(true);
     setError('');
     setResults([]);
-    
+
     const result = await fetchProductByBarcode(barcode);
     setLoading(false);
-    
+
     if (result.success) {
       navigateToResult(result.product);
     } else {
-      setError(`Product not found for barcode: ${barcode}`);
+      setError(`Product not found for barcode: ${barcode}. It may not be in the OpenFoodFacts database.`);
     }
   };
 
@@ -87,19 +89,13 @@ export default function HomePage() {
   };
 
   const handleImageDetection = (detection) => {
-    if (detection.type === 'barcode') {
-      handleBarcode(detection.query);
-    } else {
-      handleSearch(detection.query, true);
-    }
+    if (detection.type === 'barcode') handleBarcode(detection.query);
+    else handleSearch(detection.query, true);
   };
 
   const handleVoiceCommand = (command) => {
-    if (command.type === 'search') {
-      handleSearch(command.query, true);
-    } else if (command.type === 'navigate') {
-      navigate(command.path);
-    }
+    if (command.type === 'search') handleSearch(command.query, true);
+    else if (command.type === 'navigate') navigate(command.path);
   };
 
   const navigateToResult = (product) => {
@@ -117,14 +113,12 @@ export default function HomePage() {
         {theme === 'light' ? '🌙' : '☀️'}
       </button>
 
-      {/* Voice Commands */}
       <VoiceCommands onCommand={handleVoiceCommand} />
 
       {/* Hero */}
       <div className="text-center mb-14 animate-fade-in-up">
         <h1 className="text-[48px] sm:text-[56px] font-extrabold tracking-tight text-text-primary leading-[1.05]">
-          Decode Your
-          <br />
+          Decode Your<br />
           <span className="text-accent">Food.</span>
         </h1>
         <p className="text-[17px] text-text-secondary mt-4 max-w-md mx-auto leading-relaxed">
@@ -138,9 +132,7 @@ export default function HomePage() {
           onClick={() => setShowBarcodeScanner(true)}
           className="w-full card p-5 flex items-center gap-4 text-left bg-gradient-to-r from-accent to-accent-dark text-white border-0 hover:shadow-md transition-all"
         >
-          <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center text-3xl shrink-0">
-            📷
-          </div>
+          <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center text-3xl shrink-0">📷</div>
           <div className="flex-1">
             <p className="text-[16px] font-bold">Scan Barcode Live</p>
             <p className="text-[13px] opacity-90">Use camera for instant barcode detection</p>
@@ -164,18 +156,12 @@ export default function HomePage() {
         />
       </div>
 
-      {/* Error */}
-      {error && (
-        <div className="text-center mb-8 animate-fade-in">
-          <p className="text-[14px] text-avoid bg-avoid-bg inline-block px-5 py-2.5 rounded-2xl font-medium">
-            {error}
-          </p>
-        </div>
-      )}
-
       {/* Loading skeleton */}
-      {loading && results.length === 0 && !error && (
+      {loading && results.length === 0 && (
         <div className="space-y-3 animate-fade-in">
+          <p className="text-[13px] text-text-tertiary text-center mb-2">
+            Searching USDA + OpenFoodFacts databases…
+          </p>
           {[1, 2, 3].map(i => (
             <div key={i} className="card p-4 flex gap-4 items-center">
               <div className="skeleton w-14 h-14 rounded-xl shrink-0" />
@@ -188,10 +174,25 @@ export default function HomePage() {
         </div>
       )}
 
+      {/* Error */}
+      {error && !loading && (
+        <div className="mb-8 animate-fade-in">
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-center">
+            <p className="text-[13px] text-red-700 font-medium mb-2">
+              {error}
+            </p>
+            {/* Paste fallback suggestion */}
+            <p className="text-[12px] text-red-500">
+              💡 Tip: Use "Paste Ingredients" tab to manually analyse any product's ingredient list.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Results */}
-      {results.length > 0 && (
+      {results.length > 0 && !loading && (
         <div className="animate-fade-in-up delay-2 mb-12">
-          <p className="section-title">Results ({results.length})</p>
+          <p className="section-title">Results ({results.length}) for "{searchQuery}"</p>
           <div className="space-y-2">
             {results.map((product, idx) => (
               <button
@@ -200,10 +201,11 @@ export default function HomePage() {
                 className="card w-full p-4 flex items-center gap-4 text-left hover:shadow-md transition-all"
               >
                 {product.image ? (
-                  <img 
-                    src={product.image} 
-                    alt="" 
-                    className="w-14 h-14 object-contain rounded-xl bg-surface-secondary shrink-0" 
+                  <img
+                    src={product.image}
+                    alt=""
+                    className="w-14 h-14 object-contain rounded-xl bg-surface-secondary shrink-0"
+                    onError={e => { e.target.style.display = 'none'; }}
                   />
                 ) : (
                   <div className="w-14 h-14 rounded-xl bg-surface-secondary flex items-center justify-center shrink-0 text-xl text-text-tertiary">
@@ -211,12 +213,11 @@ export default function HomePage() {
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="text-[14px] font-semibold text-text-primary truncate">
-                    {product.name}
-                  </p>
-                  <p className="text-[12px] text-text-tertiary truncate">
-                    {product.brand}
-                  </p>
+                  <p className="text-[14px] font-semibold text-text-primary truncate">{product.name}</p>
+                  <p className="text-[12px] text-text-tertiary truncate">{product.brand}</p>
+                  {!product.ingredients && (
+                    <p className="text-[11px] text-yellow-500 mt-0.5">⚠ Partial data — no ingredient list</p>
+                  )}
                 </div>
                 <span className="text-text-tertiary text-[14px]">→</span>
               </button>
@@ -226,7 +227,7 @@ export default function HomePage() {
       )}
 
       {/* Empty state */}
-      {results.length === 0 && !loading && (
+      {results.length === 0 && !loading && !error && (
         <>
           <div className="mb-12 animate-fade-in-up delay-2">
             <p className="section-title text-center">Try a product</p>
@@ -261,9 +262,7 @@ export default function HomePage() {
                       📦
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[13px] font-medium text-text-primary truncate">
-                        {item.name}
-                      </p>
+                      <p className="text-[13px] font-medium text-text-primary truncate">{item.name}</p>
                       <p className="text-[11px] text-text-tertiary">{item.brand}</p>
                     </div>
                   </button>
