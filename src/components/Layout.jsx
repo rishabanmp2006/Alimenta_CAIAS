@@ -14,7 +14,7 @@ export default function Layout() {
         <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
           <NavLink to="/" className="flex items-center gap-2.5">
             <span className="text-xl font-extrabold tracking-tight text-text-primary">
-              eat<span className="text-accent">iq</span>
+              aliment<span className="text-accent">a</span>
             </span>
           </NavLink>
           
@@ -46,7 +46,7 @@ export default function Layout() {
 
       {/* Footer */}
       <footer className="py-8 text-center text-xs text-text-tertiary">
-        eatiq · ingredient intelligence
+        alimenta · ingredient intelligence
       </footer>
     </div>
   );

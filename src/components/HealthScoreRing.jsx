@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useEffect, useState, useRef } from 'react';
 
 export default function HealthScoreRing({ score, label, color, size = 160 }) {
@@ -6,12 +5,6 @@ export default function HealthScoreRing({ score, label, color, size = 160 }) {
   const intervalRef = useRef(null);
   const timeoutRef = useRef(null);
   
-=======
-import { useEffect, useState } from 'react';
-
-export default function HealthScoreRing({ score, label, color, size = 160 }) {
-  const [animatedScore, setAnimatedScore] = useState(0);
->>>>>>> 2ea5df27c0c9c7857aec00775ea20ff2e279ab33
   const strokeWidth = 8;
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
@@ -20,7 +13,6 @@ export default function HealthScoreRing({ score, label, color, size = 160 }) {
 
   useEffect(() => {
     setAnimatedScore(0);
-<<<<<<< HEAD
     
     // Clear any existing timers
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -34,20 +26,10 @@ export default function HealthScoreRing({ score, label, color, size = 160 }) {
           setAnimatedScore(score);
           clearInterval(intervalRef.current);
           intervalRef.current = null;
-=======
-    const timer = setTimeout(() => {
-      let current = 0;
-      const interval = setInterval(() => {
-        current += 1;
-        if (current >= score) {
-          setAnimatedScore(score);
-          clearInterval(interval);
->>>>>>> 2ea5df27c0c9c7857aec00775ea20ff2e279ab33
         } else {
           setAnimatedScore(current);
         }
       }, 12);
-<<<<<<< HEAD
     }, 150);
     
     // Cleanup function
@@ -61,11 +43,6 @@ export default function HealthScoreRing({ score, label, color, size = 160 }) {
         timeoutRef.current = null;
       }
     };
-=======
-      return () => clearInterval(interval);
-    }, 150);
-    return () => clearTimeout(timer);
->>>>>>> 2ea5df27c0c9c7857aec00775ea20ff2e279ab33
   }, [score]);
 
   const getColor = (s) => {

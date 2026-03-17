@@ -1,61 +1,51 @@
-import { useState } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { searchProducts } from '../api/openFoodFacts';
 import { parseIngredients } from '../engine/parser';
 import { classifyIngredients } from '../engine/classifier';
 import { computeHealthScore, computeTrustScore } from '../engine/scorer';
 import CompareCard from '../components/CompareCard';
 
-export default function ComparePage() {
-  const [query1, setQuery1] = useState('');
-  const [query2, setQuery2] = useState('');
-  const [results1, setResults1] = useState([]);
-  const [results2, setResults2] = useState([]);
-  const [product1, setProduct1] = useState(null);
-  const [product2, setProduct2] = useState(null);
-  const [loading1, setLoading1] = useState(false);
-  const [loading2, setLoading2] = useState(false);
+// SearchInput component defined outside to prevent recreation on every render
+function SearchInput({ side, query, setQuery, loading, results, onSearch, onSelectProduct }) {
+  const debounceTimerRef = useRef(null);
 
-  const handleSearch = async (query, side) => {
-    const setLoading = side === 1 ? setLoading1 : setLoading2;
-    const setResults = side === 1 ? setResults1 : setResults2;
-    setLoading(true);
-    setResults([]);
-    const result = await searchProducts(query);
-    setLoading(false);
-    if (result.success) setResults(result.products);
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setQuery(value);
+    
+    // Debounced auto-search after 500ms of no typing
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+    
+    if (value.trim().length >= 2) {
+      debounceTimerRef.current = setTimeout(() => {
+        onSearch(value, side);
+      }, 500);
+    }
   };
 
-  const selectProduct = (product, side) => {
-    if (side === 1) { setProduct1(product); setResults1([]); }
-    else { setProduct2(product); setResults2([]); }
-  };
+  useEffect(() => {
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
+  }, []);
 
-  const analyzeProduct = (product) => {
-    if (!product?.ingredients) return null;
-    const parsed = parseIngredients(product.ingredients);
-    const classified = classifyIngredients(parsed, 'general');
-    const healthScore = computeHealthScore(classified);
-    const trustScore = computeTrustScore(classified);
-    return { classified, healthScore, trustScore };
-  };
-
-  const analysis1 = product1 ? analyzeProduct(product1) : null;
-  const analysis2 = product2 ? analyzeProduct(product2) : null;
-
-  const SearchInput = ({ side, query, setQuery, loading, results }) => (
+  return (
     <div>
       <form
-        onSubmit={(e) => { e.preventDefault(); if (query.trim()) handleSearch(query, side); }}
+        onSubmit={(e) => { 
+          e.preventDefault(); 
+          if (query.trim()) onSearch(query, side); 
+        }}
         className="flex gap-2 mb-3"
       >
         <input
           type="text"
           value={query}
-<<<<<<< HEAD
-          onChange={(e) => setQuery(e.target.value)}
-=======
-          onChange={(e) => (side === 1 ? setQuery1 : setQuery2)(e.target.value)}
->>>>>>> 2ea5df27c0c9c7857aec00775ea20ff2e279ab33
+          onChange={handleInputChange}
           placeholder={`Product ${side}...`}
           className="flex-1 bg-white rounded-xl px-4 py-2.5 text-[14px] text-text-primary placeholder-text-tertiary focus:outline-none focus:ring-2 focus:ring-accent/20 border border-border-light"
         />
@@ -72,7 +62,7 @@ export default function ComparePage() {
           {results.map((p, idx) => (
             <button
               key={p.id + idx}
-              onClick={() => selectProduct(p, side)}
+              onClick={() => onSelectProduct(p, side)}
               className="card w-full p-2.5 flex items-center gap-2.5 text-left hover:shadow-sm transition-all text-[13px]"
             >
               {p.image ? (
@@ -90,6 +80,44 @@ export default function ComparePage() {
       )}
     </div>
   );
+}
+
+export default function ComparePage() {
+  const [query1, setQuery1] = useState('');
+  const [query2, setQuery2] = useState('');
+  const [results1, setResults1] = useState([]);
+  const [results2, setResults2] = useState([]);
+  const [product1, setProduct1] = useState(null);
+  const [product2, setProduct2] = useState(null);
+  const [loading1, setLoading1] = useState(false);
+  const [loading2, setLoading2] = useState(false);
+
+  const handleSearch = useCallback(async (query, side) => {
+    const setLoading = side === 1 ? setLoading1 : setLoading2;
+    const setResults = side === 1 ? setResults1 : setResults2;
+    setLoading(true);
+    setResults([]);
+    const result = await searchProducts(query);
+    setLoading(false);
+    if (result.success) setResults(result.products);
+  }, []);
+
+  const selectProduct = useCallback((product, side) => {
+    if (side === 1) { setProduct1(product); setResults1([]); setQuery1(''); }
+    else { setProduct2(product); setResults2([]); setQuery2(''); }
+  }, []);
+
+  const analyzeProduct = (product) => {
+    if (!product?.ingredients) return null;
+    const parsed = parseIngredients(product.ingredients);
+    const classified = classifyIngredients(parsed, 'general');
+    const healthScore = computeHealthScore(classified);
+    const trustScore = computeTrustScore(classified);
+    return { classified, healthScore, trustScore };
+  };
+
+  const analysis1 = product1 ? analyzeProduct(product1) : null;
+  const analysis2 = product2 ? analyzeProduct(product2) : null;
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-12">
@@ -99,8 +127,24 @@ export default function ComparePage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 mb-8 animate-fade-in-up delay-1">
-        <SearchInput side={1} query={query1} setQuery={setQuery1} loading={loading1} results={results1} />
-        <SearchInput side={2} query={query2} setQuery={setQuery2} loading={loading2} results={results2} />
+        <SearchInput 
+          side={1} 
+          query={query1} 
+          setQuery={setQuery1} 
+          loading={loading1} 
+          results={results1}
+          onSearch={handleSearch}
+          onSelectProduct={selectProduct}
+        />
+        <SearchInput 
+          side={2} 
+          query={query2} 
+          setQuery={setQuery2} 
+          loading={loading2} 
+          results={results2}
+          onSearch={handleSearch}
+          onSelectProduct={selectProduct}
+        />
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 animate-fade-in-up delay-2">

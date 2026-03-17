@@ -1,26 +1,73 @@
-import { useState } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
+import ImageScanner from '../components/ImageScanner';
+import VoiceCommands from '../components/VoiceCommands';
+import EducationalGame from '../components/EducationalGame';
 import { searchProducts, fetchProductByBarcode } from '../api/openFoodFacts';
 import { parseIngredients } from '../engine/parser';
 import { useHistory } from '../hooks/useHistory';
+
+// Simple cache to speed up repeated searches
+const searchCache = new Map();
 
 export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [error, setError] = useState('');
+  const [showGame, setShowGame] = useState(false);
   const navigate = useNavigate();
   const { history } = useHistory();
+  const debounceTimerRef = useRef(null);
 
-  const handleSearch = async (query) => {
-    setLoading(true);
-    setError('');
-    setResults([]);
-    const result = await searchProducts(query);
-    setLoading(false);
-    if (result.success) setResults(result.products);
-    else setError('No products found. Try a different search term.');
-  };
+  // Register service worker for PWA
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => {
+        console.log('Service worker registration failed');
+      });
+    }
+  }, []);
+
+  const handleSearch = useCallback(async (query, immediate = false) => {
+    // Clear previous debounce timer
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+
+    const performSearch = async () => {
+      setLoading(true);
+      setError('');
+      setResults([]);
+      
+      // Check cache first
+      const cacheKey = query.toLowerCase().trim();
+      if (searchCache.has(cacheKey)) {
+        setResults(searchCache.get(cacheKey));
+        setLoading(false);
+        return;
+      }
+      
+      const result = await searchProducts(query);
+      setLoading(false);
+      
+      if (result.success) {
+        // Cache the results for 5 minutes
+        searchCache.set(cacheKey, result.products);
+        setTimeout(() => searchCache.delete(cacheKey), 5 * 60 * 1000);
+        setResults(result.products);
+      } else {
+        setError('No products found. Try a different search term.');
+      }
+    };
+
+    if (immediate) {
+      performSearch();
+    } else {
+      // Debounce for 300ms for better UX
+      debounceTimerRef.current = setTimeout(performSearch, 300);
+    }
+  }, []);
 
   const handleBarcode = async (barcode) => {
     setLoading(true);
@@ -43,12 +90,31 @@ export default function HomePage() {
     });
   };
 
+  const handleImageDetection = (detection) => {
+    if (detection.type === 'barcode') {
+      handleBarcode(detection.query);
+    } else {
+      handleSearch(detection.query, true);
+    }
+  };
+
+  const handleVoiceCommand = (command) => {
+    if (command.type === 'search') {
+      handleSearch(command.query, true);
+    } else if (command.type === 'navigate') {
+      navigate(command.path);
+    }
+  };
+
   const navigateToResult = (product) => {
     navigate('/result', { state: { product } });
   };
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-20">
+      {/* Voice Commands */}
+      <VoiceCommands onCommand={handleVoiceCommand} />
+
       {/* Hero */}
       <div className="text-center mb-14 animate-fade-in-up">
         <h1 className="text-[48px] sm:text-[56px] font-extrabold tracking-tight text-text-primary leading-[1.05]">
@@ -61,8 +127,13 @@ export default function HomePage() {
         </p>
       </div>
 
+      {/* Image Scanner */}
+      <div className="mb-6 animate-fade-in-up delay-1">
+        <ImageScanner onProductDetected={handleImageDetection} />
+      </div>
+
       {/* Search */}
-      <div className="mb-10 animate-fade-in-up delay-1">
+      <div className="mb-10 animate-fade-in-up delay-2">
         <SearchBar
           onSearch={handleSearch}
           onBarcode={handleBarcode}
@@ -131,7 +202,7 @@ export default function HomePage() {
               {['Nutella', 'Coca-Cola', 'Doritos', 'Oreo', 'Red Bull'].map(name => (
                 <button
                   key={name}
-                  onClick={() => handleSearch(name)}
+                  onClick={() => handleSearch(name, true)}
                   className="px-4 py-2 bg-white text-text-secondary rounded-full text-[13px] font-medium hover:bg-text-primary hover:text-white transition-all duration-200 border border-border-light"
                 >
                   {name}
@@ -140,9 +211,14 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Educational Game */}
+          <div className="mb-12 animate-fade-in-up delay-3">
+            <EducationalGame />
+          </div>
+
           {/* Recent history */}
           {history.length > 0 && (
-            <div className="animate-fade-in-up delay-3">
+            <div className="animate-fade-in-up delay-4">
               <p className="section-title">Recent</p>
               <div className="space-y-2">
                 {history.slice(0, 3).map(item => (

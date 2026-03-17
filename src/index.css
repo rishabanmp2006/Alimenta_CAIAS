@@ -1,16 +1,9 @@
-<<<<<<< HEAD
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ── Apple-style Design System ── */
 :root {
-=======
-@import "tailwindcss";
-
-/* ── Apple-style Design System ── */
-@theme {
->>>>>>> 2ea5df27c0c9c7857aec00775ea20ff2e279ab33
   --color-surface: #ffffff;
   --color-surface-secondary: #f5f5f7;
   --color-surface-tertiary: #fafafa;

@@ -18,6 +18,7 @@ import LongTermEffects from '../components/LongTermEffects';
 import HiddenDangers from '../components/HiddenDangers';
 import AlternativeSuggestions from '../components/AlternativeSuggestions';
 import TrustScore from '../components/TrustScore';
+import AIChatAssistant from '../components/AIChatAssistant';
 
 export default function ResultPage() {
   const location = useLocation();
@@ -102,6 +103,15 @@ export default function ResultPage() {
         {/* 4. Summary */}
         <div className="animate-fade-in-up delay-4">
           <SmartSummary summary={analysis.summary} productName={product.name} />
+        </div>
+
+        {/* 4.5. AI Chat Assistant */}
+        <div className="animate-fade-in-up delay-4">
+          <AIChatAssistant 
+            product={product} 
+            analysis={analysis} 
+            profile={profile}
+          />
         </div>
 
         {/* 5. Trust Score */}
