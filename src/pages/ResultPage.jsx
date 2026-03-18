@@ -19,6 +19,7 @@ import HiddenDangers from '../components/HiddenDangers';
 import AlternativeSuggestions from '../components/AlternativeSuggestions';
 import TrustScore from '../components/TrustScore';
 import AIChatAssistant from '../components/AIChatAssistant';
+import ShareButton from '../components/ShareButton';
 
 export default function ResultPage() {
   const location = useLocation();
@@ -136,6 +137,11 @@ export default function ResultPage() {
           <AlternativeSuggestions alternatives={analysis.alternatives} category={analysis.category} />
         </div>
 
+        {/* Share */}
+        <div className="animate-fade-in-up delay-7">
+          <ShareButton product={product} healthScore={analysis.healthScore} />
+        </div>
+
         {/* 9. Ingredient Breakdown */}
         <div className="animate-fade-in-up delay-7">
           <IngredientList ingredients={analysis.classified} />
@@ -144,3 +150,4 @@ export default function ResultPage() {
     </div>
   );
 }
+
