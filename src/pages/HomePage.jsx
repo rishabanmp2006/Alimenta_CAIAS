@@ -8,6 +8,7 @@ import EducationalGame from '../components/EducationalGame';
 import { searchProducts, fetchProductByBarcode } from '../api/openFoodFacts';
 import { useHistory } from '../hooks/useHistory';
 import { useTheme } from '../contexts/ThemeContext';
+import { useUserProfile, CONDITIONS } from '../contexts/UserProfileContext';
 
 export default function HomePage() {
   const [loading, setLoading] = useState(false);
@@ -19,6 +20,7 @@ export default function HomePage() {
   const navigate = useNavigate();
   const { history } = useHistory();
   const { theme, toggleTheme } = useTheme();
+  const { userProfile, resetProfile } = useUserProfile();
   const debounceTimerRef = useRef(null);
   // Track current search so stale background updates don't overwrite newer searches
   const currentQueryRef = useRef('');
@@ -139,6 +141,28 @@ export default function HomePage() {
           Scan barcodes instantly and understand exactly what you're consuming.
         </p>
       </div>
+
+      {/* Profile chip */}
+      {userProfile && (
+        <div className="flex items-center justify-center gap-2 mb-6 animate-fade-in-up">
+          <div className="flex items-center gap-2 bg-surface-secondary rounded-full px-4 py-2 border border-border">
+            <span className="text-[13px] font-medium text-text-primary">
+              👤 {userProfile.name}
+            </span>
+            {userProfile.conditions?.length > 0 && (
+              <span className="text-[11px] text-text-tertiary">
+                · {userProfile.conditions.map(c => CONDITIONS.find(x => x.key === c)?.emoji).join(' ')}
+              </span>
+            )}
+            <button
+              onClick={resetProfile}
+              className="text-[11px] text-accent font-medium ml-1"
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Barcode Scanner Button */}
       <div className="mb-4 animate-fade-in-up delay-1">

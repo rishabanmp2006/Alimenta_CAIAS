@@ -2263,5 +2263,3766 @@
     "profiles": {
       "child": "risky"
     }
+  },
+  {
+    "name": "quinoline yellow",
+    "category": "risky",
+    "description": "Synthetic yellow dye (E104); banned in USA, Australia. Linked to hyperactivity.",
+    "longTermEffects": [
+      "Hyperactivity in children",
+      "Allergic reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "sunset yellow",
+    "category": "risky",
+    "description": "Orange dye (E110/Yellow 6); hyperactivity and allergy concerns.",
+    "longTermEffects": [
+      "Hyperactivity",
+      "Adrenal tumours in animal studies"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "carmoisine",
+    "category": "risky",
+    "description": "Red azo dye (E122); banned in several countries.",
+    "longTermEffects": [
+      "Hyperactivity",
+      "Allergic reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "amaranth dye",
+    "category": "avoid",
+    "description": "Red azo dye (E123); banned in USA since 1976 as possible carcinogen.",
+    "longTermEffects": [
+      "Carcinogenic in animal studies"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "ponceau 4r",
+    "category": "risky",
+    "description": "Red synthetic dye (E124); banned in USA, Norway.",
+    "longTermEffects": [
+      "Hyperactivity",
+      "Allergic reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "brilliant black",
+    "category": "risky",
+    "description": "Black azo dye (E151); banned in USA, Canada, Norway.",
+    "longTermEffects": [
+      "Allergic reactions",
+      "Hyperactivity"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "lutein",
+    "category": "safe",
+    "description": "Natural yellow pigment (E161b) from marigolds; antioxidant, supports eye health.",
+    "longTermEffects": [
+      "Supports eye health",
+      "Antioxidant"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "lycopene",
+    "category": "safe",
+    "description": "Natural red pigment (E160d) from tomatoes; powerful antioxidant.",
+    "longTermEffects": [
+      "Cancer-protective",
+      "Heart health"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "chlorophyll",
+    "category": "safe",
+    "description": "Natural green pigment (E140) from plants; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "paprika extract",
+    "category": "safe",
+    "description": "Natural red-orange colour (E160c) from paprika; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "beetroot red",
+    "category": "safe",
+    "description": "Natural red pigment (E162) from beetroot; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "black carrot extract",
+    "category": "safe",
+    "description": "Natural purple pigment from black carrots; safe antioxidant.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "spirulina extract",
+    "category": "safe",
+    "description": "Blue-green colour from spirulina algae; nutritious.",
+    "longTermEffects": [
+      "High protein",
+      "Antioxidant"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "carbon black",
+    "category": "risky",
+    "description": "Black pigment (E153); possible carcinogen concerns; banned in USA.",
+    "longTermEffects": [
+      "Possible carcinogen"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "benzoic acid",
+    "category": "risky",
+    "description": "Preservative (E210); can form benzene with Vitamin C. Hyperactivity link.",
+    "longTermEffects": [
+      "Hyperactivity",
+      "Benzene formation risk"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "sodium sulphite",
+    "category": "risky",
+    "description": "Sulphite preservative (E221); asthma trigger.",
+    "longTermEffects": [
+      "Asthma",
+      "Allergic reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "potassium bisulphite",
+    "category": "risky",
+    "description": "Sulphite preservative (E228); asthma and allergy concerns.",
+    "longTermEffects": [
+      "Respiratory irritation"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "propionic acid",
+    "category": "risky",
+    "description": "Mould inhibitor in baked goods (E280); may affect behaviour in children.",
+    "longTermEffects": [
+      "Behavioural changes in children"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "sodium propionate",
+    "category": "risky",
+    "description": "Preservative (E281); same concerns as propionic acid.",
+    "longTermEffects": [
+      "Behavioural issues in children"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "natamycin",
+    "category": "safe",
+    "description": "Natural antifungal (E235) used on cheese rinds; safe at food levels.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "hexamethylene tetramine",
+    "category": "avoid",
+    "description": "Preservative (E239); releases formaldehyde in the body. Banned in many countries.",
+    "longTermEffects": [
+      "Formaldehyde release",
+      "Carcinogenic"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "dimethyl dicarbonate",
+    "category": "risky",
+    "description": "Beverage preservative (E242); breaks down to methanol. Strictly regulated.",
+    "longTermEffects": [
+      "Methanol formation"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "tocopherol",
+    "category": "safe",
+    "description": "Vitamin E antioxidant (E306-309); natural and beneficial.",
+    "longTermEffects": [
+      "Antioxidant protection",
+      "Supports immune function"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "alpha tocopherol",
+    "category": "safe",
+    "description": "Natural Vitamin E (E307); safe antioxidant.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "vitamin e",
+    "category": "safe",
+    "description": "Fat-soluble antioxidant vitamin; supports immune health.",
+    "longTermEffects": [
+      "Antioxidant",
+      "Immune support"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sodium ascorbate",
+    "category": "safe",
+    "description": "Sodium salt of Vitamin C (E301); safe antioxidant and preservative.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "calcium ascorbate",
+    "category": "safe",
+    "description": "Calcium salt of Vitamin C (E302); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "erythorbic acid",
+    "category": "safe",
+    "description": "Antioxidant (E315) similar to Vitamin C; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "rosemary extract",
+    "category": "safe",
+    "description": "Natural antioxidant (E392) from rosemary; safe.",
+    "longTermEffects": [
+      "Anti-inflammatory",
+      "Antioxidant"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "tert-butylhydroquinone",
+    "category": "avoid",
+    "description": "Synthetic antioxidant TBHQ (E319); possible carcinogen at high doses.",
+    "longTermEffects": [
+      "DNA damage",
+      "Carcinogenic at high doses",
+      "Immune disruption"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid",
+      "fitness": "avoid"
+    }
+  },
+  {
+    "name": "propyl gallate",
+    "category": "risky",
+    "description": "Synthetic antioxidant (E310); possible endocrine disruptor.",
+    "longTermEffects": [
+      "Hormonal disruption",
+      "Allergic reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "octyl gallate",
+    "category": "risky",
+    "description": "Synthetic antioxidant (E311); potential allergen.",
+    "longTermEffects": [
+      "Allergic reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "alginic acid",
+    "category": "safe",
+    "description": "Natural seaweed-derived thickener (E400); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sodium alginate",
+    "category": "safe",
+    "description": "Seaweed extract (E401); safe thickener and gelling agent.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "potassium alginate",
+    "category": "safe",
+    "description": "Seaweed-derived thickener (E402); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "ammonium alginate",
+    "category": "safe",
+    "description": "Seaweed thickener (E403); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "calcium alginate",
+    "category": "safe",
+    "description": "Seaweed-derived gelling agent (E404); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "propylene glycol alginate",
+    "category": "risky",
+    "description": "Semi-synthetic thickener (E405); may cause digestive discomfort.",
+    "longTermEffects": [
+      "Digestive discomfort at high intake"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "agar agar",
+    "category": "safe",
+    "description": "Natural seaweed gelling agent (E406); safe, vegan gelatin alternative.",
+    "longTermEffects": [
+      "Digestive health"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "gelatin",
+    "category": "safe",
+    "description": "Animal-derived protein used as gelling agent; safe but not vegan.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "tara gum",
+    "category": "safe",
+    "description": "Natural thickener (E417) from tara plant; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "konjac gum",
+    "category": "safe",
+    "description": "Natural dietary fibre (E425) from konjac plant; may aid weight management.",
+    "longTermEffects": [
+      "Blood sugar control",
+      "Cholesterol reduction"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "cellulose",
+    "category": "safe",
+    "description": "Plant fibre used as bulking agent (E460); indigestible but safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "methyl cellulose",
+    "category": "risky",
+    "description": "Semi-synthetic cellulose derivative (E461); may cause bloating.",
+    "longTermEffects": [
+      "Bloating",
+      "Digestive discomfort"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "hydroxypropyl cellulose",
+    "category": "risky",
+    "description": "Modified cellulose (E463); generally safe but synthetic.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "maltitol",
+    "category": "risky",
+    "description": "Sugar alcohol sweetener (E965); causes digestive issues at high intake.",
+    "longTermEffects": [
+      "Bloating",
+      "Diarrhoea",
+      "Blood sugar impact greater than xylitol"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "mannitol",
+    "category": "risky",
+    "description": "Sugar alcohol (E421); laxative effect at high doses.",
+    "longTermEffects": [
+      "Diarrhoea at high intake",
+      "Bloating"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "isomalt",
+    "category": "risky",
+    "description": "Sugar alcohol from sugar beet (E953); digestive discomfort at high doses.",
+    "longTermEffects": [
+      "Bloating",
+      "Diarrhoea"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "lactitol",
+    "category": "risky",
+    "description": "Sugar alcohol (E966); laxative effect at high doses.",
+    "longTermEffects": [
+      "Bloating",
+      "Laxative effect"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "glycerol",
+    "category": "safe",
+    "description": "Humectant (E422) from fats; safe at food levels.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "polyglycerol polyricinoleate",
+    "category": "risky",
+    "description": "Emulsifier (E476) used in chocolate; may reduce gallbladder function.",
+    "longTermEffects": [
+      "Gallbladder concerns at high intake"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "stearic acid",
+    "category": "safe",
+    "description": "Saturated fatty acid; used as emulsifier. Safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "ammonium phosphatide",
+    "category": "safe",
+    "description": "Emulsifier (E442) from rapeseed oil; safe alternative to lecithin.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sodium bicarbonate",
+    "category": "safe",
+    "description": "Baking soda (E500); safe leavening agent.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sodium carbonate",
+    "category": "safe",
+    "description": "Leavening agent (E500ii); safe in food amounts.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "potassium carbonate",
+    "category": "safe",
+    "description": "Leavening agent (E501); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "ammonium carbonate",
+    "category": "safe",
+    "description": "Leavening agent (E503); safe, releases CO2.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sodium hydrogen carbonate",
+    "category": "safe",
+    "description": "Baking soda variant (E500ii); safe leavening agent.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "cream of tartar",
+    "category": "safe",
+    "description": "Potassium bitartrate (E336); natural leavening acid from wine-making. Safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "calcium chloride",
+    "category": "safe",
+    "description": "Firming agent and mineral (E509); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "magnesium carbonate",
+    "category": "safe",
+    "description": "Anti-caking agent and acidity regulator (E504); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "glucono delta lactone",
+    "category": "safe",
+    "description": "Natural acidifier (E575) from glucose; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "tartaric acid",
+    "category": "safe",
+    "description": "Natural fruit acid (E334); safe acidity regulator.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "malic acid",
+    "category": "safe",
+    "description": "Natural fruit acid (E296); safe acidulant.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "fumaric acid",
+    "category": "safe",
+    "description": "Natural organic acid (E297); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "phosphoric acid",
+    "category": "risky",
+    "description": "Acidulant in cola drinks (E338); erodes tooth enamel and may affect bone density.",
+    "longTermEffects": [
+      "Tooth enamel erosion",
+      "Reduced bone density",
+      "Kidney issues at excess"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "calcium phosphate",
+    "category": "safe",
+    "description": "Mineral supplement and anti-caking agent (E341); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "dipotassium phosphate",
+    "category": "risky",
+    "description": "Phosphate additive (E340); excess phosphate linked to kidney and bone issues.",
+    "longTermEffects": [
+      "Kidney burden at excess",
+      "Bone health impact"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "sodium tripolyphosphate",
+    "category": "risky",
+    "description": "Phosphate preservative (E451); added to seafood and meats to retain water.",
+    "longTermEffects": [
+      "Kidney burden",
+      "Cardiovascular risk at excess"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "glutamic acid",
+    "category": "risky",
+    "description": "Amino acid flavour enhancer (E620); effectively same as MSG.",
+    "longTermEffects": [
+      "Headaches in sensitive individuals"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "potassium glutamate",
+    "category": "risky",
+    "description": "Potassium salt of glutamic acid (E622); same as MSG.",
+    "longTermEffects": [
+      "Headaches in sensitive individuals"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "calcium glutamate",
+    "category": "risky",
+    "description": "Calcium salt of glutamic acid (E623); same as MSG.",
+    "longTermEffects": [
+      "Headaches in MSG-sensitive individuals"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "inosinic acid",
+    "category": "risky",
+    "description": "Flavour enhancer (E630); usually combined with MSG. Gout risk.",
+    "longTermEffects": [
+      "Gout in susceptible individuals"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "guanylic acid",
+    "category": "risky",
+    "description": "Flavour enhancer (E626); often used with MSG. Gout risk.",
+    "longTermEffects": [
+      "Gout risk"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "maltol",
+    "category": "safe",
+    "description": "Natural flavour enhancer (E636) from malt; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "ethyl maltol",
+    "category": "risky",
+    "description": "Synthetic flavour enhancer (E637); stronger version of maltol.",
+    "longTermEffects": [
+      "Iron chelation at high intake"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "thaumatin",
+    "category": "safe",
+    "description": "Natural protein sweetener (E957) from katemfe fruit; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "neohesperidin",
+    "category": "risky",
+    "description": "Semi-synthetic sweetener (E959); limited long-term data.",
+    "longTermEffects": [
+      "Limited safety data"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "cyclamate",
+    "category": "avoid",
+    "description": "Artificial sweetener (E952); banned in USA since 1969 \u2014 possible carcinogen.",
+    "longTermEffects": [
+      "Possible carcinogen",
+      "Testicular atrophy in animal studies"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid",
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "neotame",
+    "category": "risky",
+    "description": "Ultra-potent artificial sweetener (E961); similar to aspartame but limited data.",
+    "longTermEffects": [
+      "Gut microbiome disruption",
+      "Limited long-term data"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "advantame",
+    "category": "risky",
+    "description": "Very new artificial sweetener (E969); insufficient long-term safety data.",
+    "longTermEffects": [
+      "Insufficient long-term data"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "l-cysteine",
+    "category": "risky",
+    "description": "Dough conditioner (E920); often derived from human hair or duck feathers.",
+    "longTermEffects": [
+      "Ethical concerns",
+      "Generally safe at food levels"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "amylase",
+    "category": "safe",
+    "description": "Enzyme used in bread-making (E1100); breaks down starch. Safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "lipase",
+    "category": "safe",
+    "description": "Enzyme that improves bread texture; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "protease",
+    "category": "safe",
+    "description": "Protein-digesting enzyme used in food processing; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "dextrin",
+    "category": "risky",
+    "description": "Modified starch (E1400); high glycaemic, rapidly digested.",
+    "longTermEffects": [
+      "Blood sugar spikes"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "oxidised starch",
+    "category": "risky",
+    "description": "Chemically modified starch (E1404); may contain bleaching residues.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "acetylated starch",
+    "category": "risky",
+    "description": "Modified starch (E1420); highly processed.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "hydroxypropyl starch",
+    "category": "risky",
+    "description": "Modified starch (E1440); propylene oxide residues possible.",
+    "longTermEffects": [
+      "Possible propylene oxide residues"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "phosphated starch",
+    "category": "risky",
+    "description": "Modified starch (E1410); excess phosphate concerns.",
+    "longTermEffects": [
+      "Phosphate burden at high intake"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "tapioca starch",
+    "category": "safe",
+    "description": "Natural starch from cassava; gluten-free and safe.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "arrowroot",
+    "category": "safe",
+    "description": "Natural starch from arrowroot plant; gentle on digestion.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "potato starch",
+    "category": "safe",
+    "description": "Natural starch from potatoes; safe.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "whey",
+    "category": "safe",
+    "description": "Liquid by-product of cheese-making; rich in protein.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "lactose",
+    "category": "risky",
+    "description": "Milk sugar; causes digestive issues in lactose-intolerant individuals.",
+    "longTermEffects": [
+      "Bloating",
+      "Diarrhoea in intolerant individuals"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "skimmed milk",
+    "category": "safe",
+    "description": "Low-fat milk; good source of protein and calcium.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "whole milk powder",
+    "category": "safe",
+    "description": "Dehydrated whole milk; nutritious source of protein and fat.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "condensed milk",
+    "category": "risky",
+    "description": "Concentrated sweetened milk; very high in sugar.",
+    "longTermEffects": [
+      "Blood sugar spikes",
+      "Weight gain"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "avoid",
+      "child": "risky"
+    }
+  },
+  {
+    "name": "buttermilk",
+    "category": "safe",
+    "description": "Fermented dairy drink; probiotic benefits.",
+    "longTermEffects": [
+      "Gut health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "ghee",
+    "category": "safe",
+    "description": "Clarified butter; pure dairy fat, free of milk solids.",
+    "longTermEffects": [
+      "High saturated fat at excess"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "risky"
+    }
+  },
+  {
+    "name": "paneer",
+    "category": "safe",
+    "description": "Fresh Indian cheese; good protein source.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "curd",
+    "category": "safe",
+    "description": "Fermented milk product (yogurt); probiotic benefits.",
+    "longTermEffects": [
+      "Gut health",
+      "Immune support"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "dark chocolate",
+    "category": "safe",
+    "description": "High cocoa content chocolate; rich in antioxidants.",
+    "longTermEffects": [
+      "Cardiovascular benefit",
+      "Antioxidant"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "milk chocolate",
+    "category": "risky",
+    "description": "Chocolate with added milk and sugar; lower in cocoa benefits.",
+    "longTermEffects": [
+      "Weight gain at excess"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "child": "risky",
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "soy milk",
+    "category": "safe",
+    "description": "Plant-based milk from soy; good protein source.",
+    "longTermEffects": [
+      "Phytoestrogen effects at very high intake"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "almond milk",
+    "category": "safe",
+    "description": "Low-calorie nut-based milk; low protein.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "oat milk",
+    "category": "safe",
+    "description": "Plant-based milk from oats; good fibre content.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "almonds",
+    "category": "safe",
+    "description": "Tree nut rich in Vitamin E, magnesium, and healthy fats.",
+    "longTermEffects": [
+      "Heart health",
+      "Blood sugar control"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "cashews",
+    "category": "safe",
+    "description": "Nut with good magnesium and iron content.",
+    "longTermEffects": [
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "peanuts",
+    "category": "safe",
+    "description": "Legume rich in protein; common allergen.",
+    "longTermEffects": [
+      "Heart health",
+      "High allergen risk"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "peanut oil",
+    "category": "safe",
+    "description": "Cooking oil from peanuts; stable at high temperatures.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sesame seeds",
+    "category": "safe",
+    "description": "Nutrient-dense seeds high in calcium and healthy fats.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sesame oil",
+    "category": "safe",
+    "description": "Flavourful oil with antioxidant properties.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "flaxseed",
+    "category": "safe",
+    "description": "Excellent source of omega-3 and fibre.",
+    "longTermEffects": [
+      "Heart health",
+      "Anti-inflammatory"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "chia seeds",
+    "category": "safe",
+    "description": "High in omega-3, fibre, and protein.",
+    "longTermEffects": [
+      "Blood sugar control",
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe",
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "sunflower seeds",
+    "category": "safe",
+    "description": "Good source of Vitamin E and healthy fats.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "walnuts",
+    "category": "safe",
+    "description": "Richest nut source of omega-3 fatty acids.",
+    "longTermEffects": [
+      "Brain health",
+      "Anti-inflammatory"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "hazelnuts",
+    "category": "safe",
+    "description": "Nut rich in Vitamin E and healthy fats.",
+    "longTermEffects": [
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "pistachios",
+    "category": "safe",
+    "description": "Low-calorie nut with good protein and fibre.",
+    "longTermEffects": [
+      "Blood sugar control",
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "potato",
+    "category": "safe",
+    "description": "Starchy vegetable; high GI when processed.",
+    "longTermEffects": [
+      "Blood sugar impact when processed"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "sweet potato",
+    "category": "safe",
+    "description": "Nutrient-dense root vegetable; lower GI than regular potato.",
+    "longTermEffects": [
+      "Blood sugar management",
+      "Antioxidants"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "spinach",
+    "category": "safe",
+    "description": "Leafy green rich in iron, folate, and antioxidants.",
+    "longTermEffects": [
+      "Iron support",
+      "Eye health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "carrot",
+    "category": "safe",
+    "description": "Rich in beta-carotene and fibre.",
+    "longTermEffects": [
+      "Eye health",
+      "Immune support"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "apple",
+    "category": "safe",
+    "description": "Rich in fibre and quercetin antioxidant.",
+    "longTermEffects": [
+      "Gut health",
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "banana",
+    "category": "safe",
+    "description": "Good source of potassium and natural energy.",
+    "longTermEffects": [
+      "Energy",
+      "Potassium support"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "orange",
+    "category": "safe",
+    "description": "Rich in Vitamin C and flavonoids.",
+    "longTermEffects": [
+      "Immune support",
+      "Antioxidant"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "lemon",
+    "category": "safe",
+    "description": "High in Vitamin C; natural acidifier.",
+    "longTermEffects": [
+      "Immune support"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "mango",
+    "category": "safe",
+    "description": "Tropical fruit rich in Vitamin A and C.",
+    "longTermEffects": [
+      "Eye health",
+      "Immune support"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "pineapple",
+    "category": "safe",
+    "description": "Contains bromelain enzyme with anti-inflammatory properties.",
+    "longTermEffects": [
+      "Anti-inflammatory"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "coconut",
+    "category": "safe",
+    "description": "High in medium-chain triglycerides; moderate saturated fat.",
+    "longTermEffects": [
+      "MCT energy",
+      "Saturated fat at excess"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "dates",
+    "category": "risky",
+    "description": "Very high natural sugar content; nutrient-dense but glycaemic.",
+    "longTermEffects": [
+      "Blood sugar spikes",
+      "Tooth decay"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "soy",
+    "category": "risky",
+    "description": "Common legume with phytoestrogens; may affect hormones at high intake.",
+    "longTermEffects": [
+      "Hormonal effects at high intake",
+      "Thyroid impact in susceptible individuals"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "risky"
+    }
+  },
+  {
+    "name": "chickpeas",
+    "category": "safe",
+    "description": "High in protein, fibre, and folate; low glycaemic.",
+    "longTermEffects": [
+      "Blood sugar control",
+      "Gut health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe",
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "lentils",
+    "category": "safe",
+    "description": "Excellent plant protein source with low GI.",
+    "longTermEffects": [
+      "Heart health",
+      "Blood sugar control"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe",
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "kidney beans",
+    "category": "safe",
+    "description": "High in protein and fibre; must be cooked properly.",
+    "longTermEffects": [
+      "Heart health",
+      "Blood sugar management"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "green peas",
+    "category": "safe",
+    "description": "Good source of plant protein and fibre.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "black beans",
+    "category": "safe",
+    "description": "Rich in antioxidants, protein, and fibre.",
+    "longTermEffects": [
+      "Gut health",
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "barley",
+    "category": "safe",
+    "description": "Whole grain with beta-glucan fibre for cholesterol reduction.",
+    "longTermEffects": [
+      "Cholesterol reduction",
+      "Blood sugar control"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "rye",
+    "category": "safe",
+    "description": "Whole grain with low GI; good fibre content.",
+    "longTermEffects": [
+      "Blood sugar management",
+      "Gut health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "quinoa",
+    "category": "safe",
+    "description": "Complete protein grain; gluten-free, all essential amino acids.",
+    "longTermEffects": [
+      "Complete nutrition",
+      "Blood sugar control"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe",
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "millet",
+    "category": "safe",
+    "description": "Gluten-free ancient grain; good magnesium source.",
+    "longTermEffects": [
+      "Blood sugar management"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "sorghum",
+    "category": "safe",
+    "description": "Gluten-free grain with antioxidants.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "corn",
+    "category": "safe",
+    "description": "Whole grain; higher GI when processed.",
+    "longTermEffects": [
+      "Blood sugar spikes when refined"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "popcorn",
+    "category": "safe",
+    "description": "Whole grain snack; healthy when air-popped without added fat.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "bran",
+    "category": "safe",
+    "description": "Outer layer of grain; very high in fibre.",
+    "longTermEffects": [
+      "Gut health",
+      "Cholesterol reduction"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "wheat germ",
+    "category": "safe",
+    "description": "Nutrient-dense part of wheat; high in Vitamin E and folate.",
+    "longTermEffects": [
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "bread flour",
+    "category": "risky",
+    "description": "High-gluten refined flour; high GI.",
+    "longTermEffects": [
+      "Blood sugar spikes"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "cake flour",
+    "category": "risky",
+    "description": "Very finely milled bleached flour; highest GI of all flours.",
+    "longTermEffects": [
+      "Blood sugar spikes",
+      "Nutrient-poor"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "diabetic": "avoid"
+    }
+  },
+  {
+    "name": "buckwheat",
+    "category": "safe",
+    "description": "Gluten-free pseudo-grain with complete protein and low GI.",
+    "longTermEffects": [
+      "Blood sugar control",
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "amaranth grain",
+    "category": "safe",
+    "description": "Ancient pseudo-grain with complete protein; gluten-free.",
+    "longTermEffects": [
+      "Cardiovascular benefit"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "ginger",
+    "category": "safe",
+    "description": "Anti-inflammatory root; supports digestion.",
+    "longTermEffects": [
+      "Anti-nausea",
+      "Anti-inflammatory",
+      "Digestive health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "cardamom",
+    "category": "safe",
+    "description": "Aromatic spice with antioxidant and digestive benefits.",
+    "longTermEffects": [
+      "Antioxidant",
+      "Digestive health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "cloves",
+    "category": "safe",
+    "description": "Spice with antimicrobial and anti-inflammatory properties.",
+    "longTermEffects": [
+      "Anti-inflammatory",
+      "Dental health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "nutmeg",
+    "category": "risky",
+    "description": "Spice containing myristicin; hallucinogenic in very large doses.",
+    "longTermEffects": [
+      "Toxic in large quantities",
+      "Safe at normal food amounts"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "fenugreek",
+    "category": "safe",
+    "description": "Spice with blood sugar-lowering properties.",
+    "longTermEffects": [
+      "Blood sugar control",
+      "Cholesterol reduction"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "star anise",
+    "category": "safe",
+    "description": "Spice with antimicrobial properties; contains shikimic acid.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "bay leaf",
+    "category": "safe",
+    "description": "Aromatic herb used in cooking; safe.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "oregano",
+    "category": "safe",
+    "description": "Herb rich in antioxidants and antimicrobial compounds.",
+    "longTermEffects": [
+      "Antioxidant",
+      "Antimicrobial"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "thyme",
+    "category": "safe",
+    "description": "Herb with antifungal and antioxidant properties.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "basil",
+    "category": "safe",
+    "description": "Herb with anti-inflammatory flavonoids.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "rosemary",
+    "category": "safe",
+    "description": "Herb with potent antioxidant rosmarinic acid.",
+    "longTermEffects": [
+      "Antioxidant",
+      "Cognitive support"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "asafoetida",
+    "category": "safe",
+    "description": "Indian spice (hing); digestive aid.",
+    "longTermEffects": [
+      "Digestive health",
+      "Anti-flatulence"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "black pepper",
+    "category": "safe",
+    "description": "Contains piperine which enhances nutrient absorption.",
+    "longTermEffects": [
+      "Enhanced nutrient absorption"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "white pepper",
+    "category": "safe",
+    "description": "Milder version of black pepper; safe.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "paprika",
+    "category": "safe",
+    "description": "Ground dried peppers; rich in carotenoids and Vitamin C.",
+    "longTermEffects": [
+      "Antioxidant"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "mace",
+    "category": "safe",
+    "description": "Spice from nutmeg covering; safe at food amounts.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "saffron",
+    "category": "safe",
+    "description": "Expensive spice with antioxidant and mood-lifting properties.",
+    "longTermEffects": [
+      "Mood support",
+      "Antioxidant"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "caffeine",
+    "category": "risky",
+    "description": "Stimulant naturally in coffee and tea; addictive at high intake.",
+    "longTermEffects": [
+      "Dependency",
+      "Sleep disruption",
+      "Cardiovascular effects at excess"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "taurine",
+    "category": "risky",
+    "description": "Amino acid added to energy drinks; limited long-term data.",
+    "longTermEffects": [
+      "Cardiovascular effects at high doses",
+      "Neurological effects with caffeine"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "guarana",
+    "category": "risky",
+    "description": "Natural caffeine source; contains 2-4x caffeine of coffee beans.",
+    "longTermEffects": [
+      "Dependency",
+      "Heart palpitations",
+      "Sleep disruption"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "green tea extract",
+    "category": "safe",
+    "description": "Concentrated green tea; high in EGCG antioxidants.",
+    "longTermEffects": [
+      "Antioxidant",
+      "Metabolism boost",
+      "Liver concerns at very high supplement doses"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "carbonated water",
+    "category": "safe",
+    "description": "Water with dissolved CO2; safe.",
+    "longTermEffects": [
+      "Minimal tooth enamel erosion at excess"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "fruit juice concentrate",
+    "category": "risky",
+    "description": "Concentrated fruit juice; high in sugar, most fibre removed.",
+    "longTermEffects": [
+      "Blood sugar spikes",
+      "Tooth decay"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "avoid",
+      "child": "risky"
+    }
+  },
+  {
+    "name": "trehalose",
+    "category": "risky",
+    "description": "Natural sugar; may promote harmful gut bacteria in susceptible individuals.",
+    "longTermEffects": [
+      "May promote C. difficile growth",
+      "Blood sugar impact"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "allulose",
+    "category": "safe",
+    "description": "Rare natural sugar with minimal caloric impact; safe.",
+    "longTermEffects": [
+      "Digestive discomfort at very high doses"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "monk fruit extract",
+    "category": "safe",
+    "description": "Natural zero-calorie sweetener from monk fruit; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "lo han guo",
+    "category": "safe",
+    "description": "Monk fruit sweetener; safe natural alternative to sugar.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "raw sugar",
+    "category": "risky",
+    "description": "Minimally processed sugar; same metabolic effect as white sugar.",
+    "longTermEffects": [
+      "Blood sugar spikes",
+      "Weight gain"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "avoid",
+      "child": "risky"
+    }
+  },
+  {
+    "name": "jaggery",
+    "category": "risky",
+    "description": "Unrefined cane sugar common in India; retains some minerals but still high GI.",
+    "longTermEffects": [
+      "Blood sugar spikes"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "palm sugar",
+    "category": "risky",
+    "description": "Traditional Asian sweetener; lower GI than white sugar but still high in sugar.",
+    "longTermEffects": [
+      "Blood sugar impact"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "nitrite",
+    "category": "avoid",
+    "description": "Curing agent in processed meats; forms carcinogenic nitrosamines.",
+    "longTermEffects": [
+      "Colorectal cancer risk",
+      "Nitrosamine formation"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid",
+      "fitness": "avoid"
+    }
+  },
+  {
+    "name": "smoke flavour",
+    "category": "risky",
+    "description": "Liquid smoke or smoke extract; contains polycyclic aromatic hydrocarbons.",
+    "longTermEffects": [
+      "PAH exposure",
+      "Possible carcinogen"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "mechanically separated meat",
+    "category": "avoid",
+    "description": "Paste made by forcing bones through sieves; high in fat and bacteria risk.",
+    "longTermEffects": [
+      "High saturated fat",
+      "Potential pathogen risk"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid",
+      "fitness": "avoid"
+    }
+  },
+  {
+    "name": "hydrolysed vegetable protein",
+    "category": "risky",
+    "description": "Protein broken down with acid; contains MSG-like free glutamates.",
+    "longTermEffects": [
+      "Headaches in sensitive individuals"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "hydrolysed soy protein",
+    "category": "risky",
+    "description": "Hydrolysed soy with free glutamates similar to MSG.",
+    "longTermEffects": [
+      "MSG-like sensitivity reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "sodium erythorbate",
+    "category": "safe",
+    "description": "Antioxidant used in cured meats (E316); safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "groundnut oil",
+    "category": "safe",
+    "description": "Peanut oil; stable cooking oil with good fatty acid profile.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "rice bran oil",
+    "category": "safe",
+    "description": "Oil extracted from rice bran; high smoke point, good for heart health.",
+    "longTermEffects": [
+      "Cholesterol reduction"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "mustard oil",
+    "category": "safe",
+    "description": "Traditional Indian cooking oil; high in omega-3 and antimicrobial.",
+    "longTermEffects": [
+      "Heart health",
+      "Anti-inflammatory"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "tamarind",
+    "category": "safe",
+    "description": "Sour fruit used in Indian cooking; rich in antioxidants.",
+    "longTermEffects": [
+      "Digestive health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "amchur",
+    "category": "safe",
+    "description": "Dried mango powder; natural souring agent.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "kokum",
+    "category": "safe",
+    "description": "Indian fruit used as souring agent; contains HCA antioxidant.",
+    "longTermEffects": [
+      "Antioxidant"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "curry leaves",
+    "category": "safe",
+    "description": "Aromatic leaves with antioxidant and blood sugar-regulating properties.",
+    "longTermEffects": [
+      "Blood sugar control",
+      "Antioxidant"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "dal",
+    "category": "safe",
+    "description": "Split lentils; excellent plant protein and low GI.",
+    "longTermEffects": [
+      "Blood sugar control",
+      "Gut health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe",
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "suji",
+    "category": "risky",
+    "description": "Semolina/rava; refined wheat with moderate GI.",
+    "longTermEffects": [
+      "Blood sugar spikes"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "rava",
+    "category": "risky",
+    "description": "Coarse semolina; moderate GI refined wheat.",
+    "longTermEffects": [
+      "Blood sugar spikes"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "poha",
+    "category": "safe",
+    "description": "Flattened rice; easily digestible, moderate GI.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sabudana",
+    "category": "risky",
+    "description": "Tapioca pearls; very high in starch and GI, low in nutrients.",
+    "longTermEffects": [
+      "Blood sugar spikes",
+      "Low nutritional value"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "avoid"
+    }
+  },
+  {
+    "name": "vermicelli",
+    "category": "risky",
+    "description": "Thin wheat or rice noodles; high GI refined carb.",
+    "longTermEffects": [
+      "Blood sugar spikes"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "noodles",
+    "category": "risky",
+    "description": "Typically refined wheat; high GI and often high in sodium.",
+    "longTermEffects": [
+      "Blood sugar spikes",
+      "High sodium intake"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "risky",
+      "fitness": "risky"
+    }
+  },
+  {
+    "name": "namkeen",
+    "category": "risky",
+    "description": "Indian savoury snack mix; typically high in sodium, refined oil and additives.",
+    "longTermEffects": [
+      "High sodium",
+      "Trans fats from frying",
+      "Additive exposure"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "chakli",
+    "category": "risky",
+    "description": "Fried Indian snack; high in fat and sodium.",
+    "longTermEffects": [
+      "High fat",
+      "High sodium"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "murukku",
+    "category": "risky",
+    "description": "Deep-fried rice flour snack; high in fat and sodium.",
+    "longTermEffects": [
+      "High fat",
+      "High sodium"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "vitamin a",
+    "category": "safe",
+    "description": "Fat-soluble vitamin essential for vision and immune function.",
+    "longTermEffects": [
+      "Toxicity at very high supplement doses"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "vitamin b12",
+    "category": "safe",
+    "description": "Essential vitamin for nerve function; often deficient in vegans.",
+    "longTermEffects": [
+      "Prevents anaemia",
+      "Supports nerve health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "vitamin b6",
+    "category": "safe",
+    "description": "Essential for protein metabolism and neurotransmitter synthesis.",
+    "longTermEffects": [
+      "Nerve damage at very high supplement doses"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "vitamin k",
+    "category": "safe",
+    "description": "Fat-soluble vitamin essential for blood clotting.",
+    "longTermEffects": [
+      "Interacts with blood thinners"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "potassium",
+    "category": "safe",
+    "description": "Essential mineral for heart and muscle function.",
+    "longTermEffects": [
+      "Regulates blood pressure"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "phosphorus",
+    "category": "safe",
+    "description": "Essential mineral for bones and energy metabolism.",
+    "longTermEffects": [
+      "Bone health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "magnesium",
+    "category": "safe",
+    "description": "Essential mineral involved in 300+ enzymatic reactions.",
+    "longTermEffects": [
+      "Muscle function",
+      "Sleep quality",
+      "Blood sugar control"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "selenium",
+    "category": "safe",
+    "description": "Trace mineral with antioxidant and thyroid-supporting properties.",
+    "longTermEffects": [
+      "Antioxidant",
+      "Thyroid health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "chromium",
+    "category": "safe",
+    "description": "Trace mineral that enhances insulin sensitivity.",
+    "longTermEffects": [
+      "Blood sugar regulation"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "copper",
+    "category": "safe",
+    "description": "Trace mineral essential for enzyme function.",
+    "longTermEffects": [
+      "Excess can be toxic"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "manganese",
+    "category": "safe",
+    "description": "Trace mineral needed for bone formation and metabolism.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "biotin",
+    "category": "safe",
+    "description": "Vitamin B7; essential for hair, skin, and metabolism.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "pantothenic acid",
+    "category": "safe",
+    "description": "Vitamin B5; essential for energy metabolism.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "mineral oil",
+    "category": "avoid",
+    "description": "Petroleum-derived processing aid; classified carcinogen when ingested long-term.",
+    "longTermEffects": [
+      "Liver damage",
+      "Possible carcinogen",
+      "Contaminates food from packaging"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "bisphenol a",
+    "category": "avoid",
+    "description": "Chemical from plastic packaging that leaches into food; endocrine disruptor.",
+    "longTermEffects": [
+      "Hormonal disruption",
+      "Reproductive harm",
+      "Cancer risk"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "microplastics",
+    "category": "avoid",
+    "description": "Plastic particles contaminating food and water; health effects emerging.",
+    "longTermEffects": [
+      "Inflammation",
+      "Endocrine disruption",
+      "Accumulation in organs"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "e102",
+    "category": "risky",
+    "description": "Tartrazine \u2014 synthetic yellow dye; hyperactivity in children.",
+    "longTermEffects": [
+      "Hyperactivity",
+      "Allergic reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "e110",
+    "category": "risky",
+    "description": "Sunset Yellow \u2014 orange synthetic dye; adrenal concerns.",
+    "longTermEffects": [
+      "Hyperactivity",
+      "Allergic reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "e129",
+    "category": "risky",
+    "description": "Allura Red / Red 40 \u2014 hyperactivity link.",
+    "longTermEffects": [
+      "Hyperactivity",
+      "Allergic reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "e211",
+    "category": "risky",
+    "description": "Sodium benzoate \u2014 forms benzene with Vitamin C.",
+    "longTermEffects": [
+      "Hyperactivity",
+      "Benzene risk"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "e621",
+    "category": "risky",
+    "description": "Monosodium glutamate (MSG) \u2014 headaches in sensitive individuals.",
+    "longTermEffects": [
+      "Headaches",
+      "Nausea in sensitive individuals"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "e951",
+    "category": "risky",
+    "description": "Aspartame \u2014 controversial sweetener; phenylalanine warning for PKU.",
+    "longTermEffects": [
+      "PKU risk",
+      "Possible neurological effects",
+      "Gut microbiome disruption"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "e955",
+    "category": "risky",
+    "description": "Sucralose \u2014 chlorinated sugar; may affect gut bacteria.",
+    "longTermEffects": [
+      "Gut microbiome disruption",
+      "Possible insulin response"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "e322",
+    "category": "safe",
+    "description": "Lecithin \u2014 natural emulsifier from soy or sunflower; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "e471",
+    "category": "risky",
+    "description": "Mono and diglycerides \u2014 may contain hidden trans fats.",
+    "longTermEffects": [
+      "Trans fat exposure",
+      "Cardiovascular risk"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "e500",
+    "category": "safe",
+    "description": "Sodium bicarbonate (baking soda) \u2014 safe leavening agent.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "e330",
+    "category": "safe",
+    "description": "Citric acid \u2014 natural fruit acid; safe acidulant.",
+    "longTermEffects": [
+      "Tooth enamel erosion at excess"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "e300",
+    "category": "safe",
+    "description": "Ascorbic acid (Vitamin C) \u2014 natural antioxidant; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "e415",
+    "category": "safe",
+    "description": "Xanthan gum \u2014 safe fermentation-derived thickener.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "e412",
+    "category": "safe",
+    "description": "Guar gum \u2014 natural thickener from guar beans; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "e407",
+    "category": "risky",
+    "description": "Carrageenan \u2014 seaweed thickener; gut inflammation concerns.",
+    "longTermEffects": [
+      "Gut inflammation",
+      "Possible carcinogen in degraded form"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "e202",
+    "category": "safe",
+    "description": "Potassium sorbate \u2014 safe mould inhibitor.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "e160a",
+    "category": "safe",
+    "description": "Beta-carotene \u2014 natural orange pigment; precursor to Vitamin A.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "e150",
+    "category": "risky",
+    "description": "Caramel colour \u2014 Class IV contains 4-MEI, a possible carcinogen.",
+    "longTermEffects": [
+      "Possible carcinogen (4-MEI)"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "soda water",
+    "category": "safe",
+    "description": "Carbonated water; safe.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sparkling water",
+    "category": "safe",
+    "description": "Naturally or artificially carbonated water; safe.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "mineral water",
+    "category": "safe",
+    "description": "Water with natural minerals; safe and beneficial.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "coconut water",
+    "category": "safe",
+    "description": "Natural electrolyte-rich drink; low calorie.",
+    "longTermEffects": [
+      "Hydration",
+      "Electrolyte balance"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "whey concentrate",
+    "category": "safe",
+    "description": "Less processed whey protein; good amino acid profile.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "whey isolate",
+    "category": "safe",
+    "description": "Highly purified whey protein; lactose-free, fast-absorbing.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "creatine",
+    "category": "safe",
+    "description": "Natural compound in muscle cells; safe performance supplement.",
+    "longTermEffects": [
+      "Muscle strength",
+      "Kidney stress only at extreme doses"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "beta alanine",
+    "category": "risky",
+    "description": "Amino acid supplement; causes harmless tingling (paraesthesia).",
+    "longTermEffects": [
+      "Paraesthesia (tingling sensation)"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "bcaa",
+    "category": "safe",
+    "description": "Branched-chain amino acids; supports muscle recovery.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "inulin",
+    "category": "safe",
+    "description": "Prebiotic fibre from chicory root; feeds beneficial gut bacteria.",
+    "longTermEffects": [
+      "Gut health",
+      "Blood sugar control"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "chicory root",
+    "category": "safe",
+    "description": "Prebiotic fibre source; supports digestive health.",
+    "longTermEffects": [
+      "Gut health",
+      "Cholesterol reduction"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "psyllium husk",
+    "category": "safe",
+    "description": "Soluble fibre supplement; excellent for gut and blood sugar.",
+    "longTermEffects": [
+      "Cholesterol reduction",
+      "Blood sugar control",
+      "Constipation relief"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "resistant starch",
+    "category": "safe",
+    "description": "Type of starch that feeds gut bacteria; low glycaemic impact.",
+    "longTermEffects": [
+      "Gut health",
+      "Blood sugar control"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "oligofructose",
+    "category": "safe",
+    "description": "Prebiotic fibre; feeds beneficial bacteria.",
+    "longTermEffects": [
+      "Gut health"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "fructooligosaccharides",
+    "category": "safe",
+    "description": "Prebiotic fibre (FOS); promotes bifidogenic bacteria.",
+    "longTermEffects": [
+      "Gut health",
+      "Immune support"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "galactooligosaccharides",
+    "category": "safe",
+    "description": "Prebiotic fibre (GOS); found naturally in human milk.",
+    "longTermEffects": [
+      "Gut health",
+      "Immune support"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "omega 3",
+    "category": "safe",
+    "description": "Essential fatty acid; powerful anti-inflammatory.",
+    "longTermEffects": [
+      "Heart health",
+      "Brain health",
+      "Anti-inflammatory"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "omega 6",
+    "category": "risky",
+    "description": "Essential fatty acid; pro-inflammatory in excess relative to omega-3.",
+    "longTermEffects": [
+      "Inflammation at high omega-6:omega-3 ratio"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "dha",
+    "category": "safe",
+    "description": "Docosahexaenoic acid omega-3; critical for brain and eye development.",
+    "longTermEffects": [
+      "Brain health",
+      "Eye development",
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "child": "safe"
+    }
+  },
+  {
+    "name": "epa",
+    "category": "safe",
+    "description": "Eicosapentaenoic acid omega-3; anti-inflammatory.",
+    "longTermEffects": [
+      "Anti-inflammatory",
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "ala",
+    "category": "safe",
+    "description": "Alpha-linolenic acid omega-3 from plants; precursor to EPA and DHA.",
+    "longTermEffects": [
+      "Heart health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "medium chain triglycerides",
+    "category": "safe",
+    "description": "MCTs from coconut/palm; rapidly metabolised for energy.",
+    "longTermEffects": [
+      "Energy metabolism",
+      "Ketone production"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "mct oil",
+    "category": "safe",
+    "description": "Concentrated medium-chain triglycerides; rapidly converted to energy.",
+    "longTermEffects": [
+      "Energy",
+      "Possible raised LDL at excess"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "shea butter",
+    "category": "safe",
+    "description": "Fat from shea tree nuts; rich in stearic acid. Safe in food.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "mono unsaturated fat",
+    "category": "safe",
+    "description": "Heart-healthy fat found in olive oil, avocado, and nuts.",
+    "longTermEffects": [
+      "Heart health",
+      "Cholesterol reduction"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "saturated fat",
+    "category": "risky",
+    "description": "Fat linked to raised LDL cholesterol at high intake.",
+    "longTermEffects": [
+      "Raised LDL cholesterol",
+      "Cardiovascular risk at excess"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "risky"
+    }
+  },
+  {
+    "name": "gluten",
+    "category": "risky",
+    "description": "Protein in wheat, barley, rye; harmful to coeliac disease sufferers.",
+    "longTermEffects": [
+      "Intestinal damage in coeliac disease",
+      "Bloating in sensitive individuals"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "wheat",
+    "category": "risky",
+    "description": "Common allergen; contains gluten.",
+    "longTermEffects": [
+      "Coeliac disease",
+      "Wheat allergy reactions"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "tree nuts",
+    "category": "safe",
+    "description": "Nutritious but top allergen; anaphylaxis risk in allergic individuals.",
+    "longTermEffects": [
+      "Heart health",
+      "Allergen risk"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "fish",
+    "category": "safe",
+    "description": "Excellent source of omega-3 and protein; top allergen.",
+    "longTermEffects": [
+      "Heart health",
+      "Brain health",
+      "Allergen risk"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "safe"
+    }
+  },
+  {
+    "name": "shellfish",
+    "category": "safe",
+    "description": "High protein seafood; major allergen for some.",
+    "longTermEffects": [
+      "Allergen risk",
+      "High purine for gout sufferers"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sulphites",
+    "category": "risky",
+    "description": "Group of sulphur-based preservatives; asthma trigger.",
+    "longTermEffects": [
+      "Asthma attacks",
+      "Allergic reactions"
+    ],
+    "isAdditive": true,
+    "isPreservative": true,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "mustard seed",
+    "category": "safe",
+    "description": "Common allergen in EU; safe for most.",
+    "longTermEffects": [
+      "Allergen risk for sensitive individuals"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "celery",
+    "category": "safe",
+    "description": "EU allergen; safe for most, anaphylaxis risk for allergic.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "lupin",
+    "category": "risky",
+    "description": "Legume flour; EU allergen, cross-reacts with peanut allergy.",
+    "longTermEffects": [
+      "Cross-allergen with peanuts"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "molluscs",
+    "category": "safe",
+    "description": "Shellfish allergen (octopus, squid, snails); safe for most.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "fried",
+    "category": "risky",
+    "description": "Deep-frying creates acrylamide and oxidised fats.",
+    "longTermEffects": [
+      "Acrylamide exposure",
+      "Trans fat formation",
+      "Oxidative stress"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "avoid",
+      "child": "risky"
+    }
+  },
+  {
+    "name": "acrylamide",
+    "category": "avoid",
+    "description": "Carcinogen formed when starchy foods are cooked at high temperatures.",
+    "longTermEffects": [
+      "Carcinogen",
+      "Nervous system damage",
+      "Reproductive harm"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "avoid"
+    }
+  },
+  {
+    "name": "palm kernel oil",
+    "category": "risky",
+    "description": "More saturated than palm oil; high in lauric acid.",
+    "longTermEffects": [
+      "Raised LDL cholesterol"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "fitness": "risky"
+    }
+  },
+  {
+    "name": "live cultures",
+    "category": "safe",
+    "description": "Probiotic bacteria in fermented foods; beneficial for gut health.",
+    "longTermEffects": [
+      "Gut health",
+      "Immune support"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "lactobacillus",
+    "category": "safe",
+    "description": "Probiotic bacteria; supports gut and immune health.",
+    "longTermEffects": [
+      "Gut health",
+      "Reduced allergies"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "bifidobacterium",
+    "category": "safe",
+    "description": "Probiotic bacteria; essential for gut health.",
+    "longTermEffects": [
+      "Gut health",
+      "Immune support"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "yeast",
+    "category": "safe",
+    "description": "Leavening microorganism; safe.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "vinegar spirit",
+    "category": "safe",
+    "description": "Distilled vinegar; safe acidulant.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": true,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "apple cider vinegar",
+    "category": "safe",
+    "description": "Fermented apple juice; may aid digestion and blood sugar.",
+    "longTermEffects": [
+      "Blood sugar control",
+      "Digestive health"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "safe"
+    }
+  },
+  {
+    "name": "hydrated silica",
+    "category": "safe",
+    "description": "Anti-caking agent; safe at food levels.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "tricalcium phosphate",
+    "category": "safe",
+    "description": "Anti-caking agent and calcium supplement; safe.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sodium silicate",
+    "category": "risky",
+    "description": "Anti-caking agent; high doses irritate digestive tract.",
+    "longTermEffects": [
+      "Digestive irritation at excess"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {}
+  },
+  {
+    "name": "magnesium stearate",
+    "category": "safe",
+    "description": "Anti-caking agent; safe at food levels.",
+    "longTermEffects": [],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "sodium ferrocyanide",
+    "category": "risky",
+    "description": "Anti-caking agent in table salt (E535); cyanide compound \u2014 safe at food levels but controversial.",
+    "longTermEffects": [
+      "Cyanide compound \u2014 safe at regulated levels"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "child": "risky"
+    }
+  },
+  {
+    "name": "dextrin maltodextrin",
+    "category": "risky",
+    "description": "Rapidly absorbed starch derivative; very high glycaemic index.",
+    "longTermEffects": [
+      "Blood sugar spikes",
+      "Weight gain"
+    ],
+    "isAdditive": true,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "diabetic": "avoid"
+    }
+  },
+  {
+    "name": "glucose",
+    "category": "risky",
+    "description": "Simple sugar; rapidly raises blood glucose.",
+    "longTermEffects": [
+      "Blood sugar spikes",
+      "Weight gain"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "avoid",
+      "child": "risky"
+    }
+  },
+  {
+    "name": "sucrose",
+    "category": "risky",
+    "description": "Table sugar (glucose + fructose); high GI.",
+    "longTermEffects": [
+      "Blood sugar spikes",
+      "Weight gain",
+      "Tooth decay"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {
+      "diabetic": "avoid",
+      "child": "risky"
+    }
+  },
+  {
+    "name": "lactose free",
+    "category": "safe",
+    "description": "Product with lactase-treated milk; safe for lactose-intolerant.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "enriched",
+    "category": "risky",
+    "description": "Refined food with synthetic vitamins added back; still nutrient-poor base.",
+    "longTermEffects": [
+      "High GI from refined base"
+    ],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": true,
+    "profiles": {
+      "diabetic": "risky"
+    }
+  },
+  {
+    "name": "fortified",
+    "category": "safe",
+    "description": "Food with added vitamins/minerals; generally beneficial.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "organic",
+    "category": "safe",
+    "description": "Grown without synthetic pesticides; generally safer.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
+  },
+  {
+    "name": "non gmo",
+    "category": "safe",
+    "description": "Not genetically modified; no additional health concerns.",
+    "longTermEffects": [],
+    "isAdditive": false,
+    "isPreservative": false,
+    "isArtificial": false,
+    "profiles": {}
   }
 ]

@@ -9,8 +9,10 @@ import { detectHiddenDangers, getDangerSummary } from '../engine/hiddenDangers';
 import { getAlternatives } from '../engine/alternatives';
 import { useHistory } from '../hooks/useHistory';
 import { useStreak } from '../hooks/useStreak';
+import { useUserProfile, getPersonalisedWarnings } from '../contexts/UserProfileContext';
 
 import QuickDecision from '../components/QuickDecision';
+import PersonalisedWarnings from '../components/PersonalisedWarnings';
 import ProfileSelector from '../components/ProfileSelector';
 import SmartSummary from '../components/SmartSummary';
 import RiskDashboard from '../components/RiskDashboard';
@@ -29,6 +31,7 @@ export default function ResultPage() {
   const navigate = useNavigate();
   const { addToHistory } = useHistory();
   const { streak, recordScan } = useStreak();
+  const { userProfile } = useUserProfile();
   const [profile, setProfile] = useState('general');
   const savedIdRef = useRef(null);
 
@@ -65,6 +68,10 @@ export default function ResultPage() {
       recordScan();
     }
   }, [product, analysis, addToHistory, recordScan]);
+
+  const personalisedWarnings = analysis
+    ? getPersonalisedWarnings(analysis.classified, userProfile)
+    : [];
 
   if (!product || !analysis) {
     return (
@@ -103,6 +110,16 @@ export default function ResultPage() {
       </div>
 
       <div className="space-y-6">
+
+        {/* 0. Personalised warnings — always shown first */}
+        {userProfile?.conditions?.length > 0 && (
+          <div className="animate-fade-in-up">
+            <PersonalisedWarnings
+              warnings={personalisedWarnings}
+              userName={userProfile.name}
+            />
+          </div>
+        )}
 
         {/* 1. Red flag alerts — shown first if any */}
         {analysis.classified.some(i => i.status === 'avoid') && (
