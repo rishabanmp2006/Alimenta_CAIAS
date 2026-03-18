@@ -8,6 +8,7 @@ import { getLongTermEffects, getLongTermSummary } from '../engine/longTermEffect
 import { detectHiddenDangers, getDangerSummary } from '../engine/hiddenDangers';
 import { getAlternatives } from '../engine/alternatives';
 import { useHistory } from '../hooks/useHistory';
+import { useStreak } from '../hooks/useStreak';
 
 import QuickDecision from '../components/QuickDecision';
 import ProfileSelector from '../components/ProfileSelector';
@@ -20,11 +21,14 @@ import AlternativeSuggestions from '../components/AlternativeSuggestions';
 import TrustScore from '../components/TrustScore';
 import AIChatAssistant from '../components/AIChatAssistant';
 import ShareButton from '../components/ShareButton';
+import NutriScoreLabel from '../components/NutriScoreLabel';
+import AdditiveAlerts from '../components/AdditiveAlerts';
 
 export default function ResultPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const { addToHistory } = useHistory();
+  const { streak, recordScan } = useStreak();
   const [profile, setProfile] = useState('general');
   const savedIdRef = useRef(null);
 
@@ -58,10 +62,24 @@ export default function ResultPage() {
     if (product && analysis && savedIdRef.current !== product.id) {
       savedIdRef.current = product.id;
       addToHistory({ ...product, healthScore: analysis.healthScore });
+      recordScan();
     }
-  }, [product, analysis, addToHistory]);
+  }, [product, analysis, addToHistory, recordScan]);
 
-  if (!product || !analysis) return null;
+  if (!product || !analysis) {
+    return (
+      <div className="max-w-2xl mx-auto px-6 py-20 text-center">
+        <p className="text-text-tertiary text-[15px]">No ingredient data available for this product.</p>
+        <p className="text-text-tertiary text-[13px] mt-1 mb-6">The product may not have an ingredient list in the database.</p>
+        <button
+          onClick={() => navigate('/')}
+          className="px-6 py-2.5 bg-text-primary text-white rounded-full text-[13px] font-semibold"
+        >
+          ← Search Another Product
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-2xl mx-auto px-6 py-8">
@@ -84,70 +102,90 @@ export default function ResultPage() {
         </div>
       </div>
 
-      {/* Vertical layout — each section stacked */}
-      <div className="space-y-8">
-        {/* 1. Quick Decision */}
+      <div className="space-y-6">
+
+        {/* 1. Red flag alerts — shown first if any */}
+        {analysis.classified.some(i => i.status === 'avoid') && (
+          <div className="animate-fade-in-up">
+            <AdditiveAlerts classified={analysis.classified} />
+          </div>
+        )}
+
+        {/* 2. Quick Decision */}
         <div className="animate-fade-in-up delay-1">
           <QuickDecision healthScore={analysis.healthScore} />
         </div>
 
-        {/* 2. Profile selector */}
+        {/* 3. Nutri-Score */}
+        <div className="animate-fade-in-up delay-1">
+          <NutriScoreLabel nutriScore={product.nutriScore} healthScore={analysis.healthScore} />
+        </div>
+
+        {/* 4. Profile selector */}
         <div className="animate-fade-in-up delay-2">
           <ProfileSelector selected={profile} onChange={setProfile} />
         </div>
 
-        {/* 3. Risk Dashboard */}
+        {/* 5. Risk Dashboard */}
         <div className="animate-fade-in-up delay-3">
           <p className="section-title">Health Score</p>
           <RiskDashboard healthScore={analysis.healthScore} classified={analysis.classified} />
         </div>
 
-        {/* 4. Summary */}
+        {/* 6. Summary */}
         <div className="animate-fade-in-up delay-4">
           <SmartSummary summary={analysis.summary} productName={product.name} />
         </div>
 
-        {/* 4.5. AI Chat Assistant */}
+        {/* 7. AI Chat Assistant */}
         <div className="animate-fade-in-up delay-4">
-          <AIChatAssistant 
-            product={product} 
-            analysis={analysis} 
-            profile={profile}
-          />
+          <AIChatAssistant product={product} analysis={analysis} profile={profile} />
         </div>
 
-        {/* 5. Trust Score */}
+        {/* 8. Trust Score */}
         <div className="animate-fade-in-up delay-5">
           <p className="section-title">Trust</p>
           <TrustScore trustScore={analysis.trustScore} />
         </div>
 
-        {/* 6. Long-Term Effects */}
+        {/* 9. Long-Term Effects */}
         <div className="animate-fade-in-up delay-5">
           <LongTermEffects effects={analysis.effects} summary={analysis.effectsSummary} />
         </div>
 
-        {/* 7. Hidden Dangers */}
+        {/* 10. Hidden Dangers */}
         <div className="animate-fade-in-up delay-6">
           <HiddenDangers dangers={analysis.dangers} summary={analysis.dangersSummary} />
         </div>
 
-        {/* 8. Alternatives */}
+        {/* 11. Alternatives */}
         <div className="animate-fade-in-up delay-6">
           <AlternativeSuggestions alternatives={analysis.alternatives} category={analysis.category} />
         </div>
 
-        {/* Share */}
-        <div className="animate-fade-in-up delay-7">
-          <ShareButton product={product} healthScore={analysis.healthScore} />
-        </div>
-
-        {/* 9. Ingredient Breakdown */}
+        {/* 12. Ingredient Breakdown */}
         <div className="animate-fade-in-up delay-7">
           <IngredientList ingredients={analysis.classified} />
         </div>
+
+        {/* 13. Share + Scan Another */}
+        <div className="animate-fade-in-up delay-7 space-y-3 pb-8">
+          <ShareButton product={product} healthScore={analysis.healthScore} />
+          <button
+            onClick={() => navigate('/')}
+            className="w-full card p-4 text-center text-[14px] font-semibold text-text-secondary hover:text-text-primary transition-all"
+          >
+            🔍 Scan Another Product
+          </button>
+          <button
+            onClick={() => navigate('/compare')}
+            className="w-full card p-4 text-center text-[14px] font-semibold text-text-secondary hover:text-text-primary transition-all"
+          >
+            ⚖️ Compare with Another Product
+          </button>
+        </div>
+
       </div>
     </div>
   );
 }
-
